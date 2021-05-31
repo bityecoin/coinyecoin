@@ -26,6 +26,34 @@ class CNode;
 
 struct CBlockIndexWorkComparator;
 
+//! Compensate for extra memory peak (x1.5-x1.9) at flush time.
+static constexpr int DB_PEAK_USAGE_FACTOR = 2;
+//! No need to periodic flush if at least this much space still available.
+static constexpr int MAX_BLOCK_COINSDB_USAGE = 200 * DB_PEAK_USAGE_FACTOR;
+//! Always periodic flush if less than this much space still available.
+static constexpr int MIN_BLOCK_COINSDB_USAGE = 50 * DB_PEAK_USAGE_FACTOR;
+//! -dbcache default (MiB)
+static const int64_t nDefaultDbCache = 450;
+//! max. -dbcache (MiB)
+static const int64_t nMaxDbCache = sizeof(void*) > 4 ? 16384 : 1024;
+//! min. -dbcache (MiB)
+static const int64_t nMinDbCache = 4;
+//! Max memory allocated to block tree DB specific cache, if no -txindex (MiB)
+static const int64_t nMaxBlockDBCache = 2;
+//! Max memory allocated to block tree DB specific cache, if -txindex (MiB)
+// Unlike for the UTXO database, for the txindex scenario the leveldb cache make
+// a meaningful difference: https://github.com/bitcoin/bitcoin/pull/8273#issuecomment-229601991
+static const int64_t nMaxBlockDBAndTxIndexCache = 1024;
+//! Max memory allocated to coin DB specific cache (MiB)
+static const int64_t nMaxCoinsDBCache = 8;
+
+// Validation
+extern size_t nCoinCacheUsage;
+static const bool DEFAULT_TXINDEX = false;
+
+//Policy
+static const unsigned int DEFAULT_MAX_MEMPOOL_SIZE = 300;
+
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;                      // 1000KB block hard limit
 /** Obsolete: maximum size for mined blocks */

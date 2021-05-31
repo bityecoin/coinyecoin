@@ -54,6 +54,9 @@ bool fBenchmark = false;
 bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
 
+size_t nCoinCacheUsage = 5000 * 300;
+
+
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
 int64 CTransaction::nMinTxFee = 100000000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */

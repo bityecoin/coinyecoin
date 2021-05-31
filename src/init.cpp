@@ -11,6 +11,7 @@
 #include "init.h"
 #include "util.h"
 #include "ui_interface.h"
+#include "main.h"
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
@@ -304,7 +305,7 @@ std::string HelpMessage()
         "  -gen                   " + _("Generate coins (default: 0)") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
         "  -wallet=<file>         " + _("Specify wallet file (within data directory)") + "\n" +
-        "  -dbcache=<n>           " + _("Set database cache size in megabytes (default: 100)") + "\n" +
+        "  -dbcache=<n>           " + _("Set database cache size in megabytes (default: 450)") + "\n" +
         "  -timeout=<n>           " + _("Specify connection timeout in milliseconds (default: 5000)") + "\n" +
         "  -proxy=<ip:port>       " + _("Connect through socks proxy") + "\n" +
         "  -socks=<n>             " + _("Select the version of socks proxy to use (4-5, default: 5)") + "\n" +
@@ -858,16 +859,34 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     // cache size calculations
-    size_t nTotalCache = GetArg("-dbcache", 100) << 20;
-    if (nTotalCache < (1 << 22))
-        nTotalCache = (1 << 22); // total cache cannot be less than 4 MiB
-    size_t nBlockTreeDBCache = nTotalCache / 8;
-    if (nBlockTreeDBCache > (1 << 21) && !GetBoolArg("-txindex", false))
-        nBlockTreeDBCache = (1 << 21); // block tree db cache shouldn't be larger than 2 MiB
+    //size_t nTotalCache = GetArg("-dbcache", 100) << 20;
+    //if (nTotalCache < (1 << 22))
+    //    nTotalCache = (1 << 22); // total cache cannot be less than 4 MiB
+    //size_t nBlockTreeDBCache = nTotalCache / 8;
+    //if (nBlockTreeDBCache > (1 << 21) && !GetBoolArg("-txindex", false))
+    //    nBlockTreeDBCache = (1 << 21); // block tree db cache shouldn't be larger than 2 MiB
+    //nTotalCache -= nBlockTreeDBCache;
+    //size_t nCoinDBCache = nTotalCache / 2; // use half of the remaining cache for coindb cache
+    //nTotalCache -= nCoinDBCache;
+    //nCoinCacheSize = nTotalCache / 300; // coins in memory require around 300 bytes
+
+    // Imported from latest dogecoin repo to speed up reindex.. hopefully
+    int64_t nTotalCache = (GetArg("-dbcache", nDefaultDbCache) << 20);
+    nTotalCache = std::max(nTotalCache, nMinDbCache << 20); // total cache cannot be less than nMinDbCache
+    nTotalCache = std::min(nTotalCache, nMaxDbCache << 20); // total cache cannot be greater than nMaxDbcache
+    int64_t nBlockTreeDBCache = nTotalCache / 8;
+    nBlockTreeDBCache = std::min(nBlockTreeDBCache, (GetBoolArg("-txindex", DEFAULT_TXINDEX) ? nMaxBlockDBAndTxIndexCache : nMaxBlockDBCache) << 20);
     nTotalCache -= nBlockTreeDBCache;
-    size_t nCoinDBCache = nTotalCache / 2; // use half of the remaining cache for coindb cache
+    int64_t nCoinDBCache = std::min(nTotalCache / 2, (nTotalCache / 4) + (1 << 23)); // use 25%-50% of the remainder for disk cache
+    nCoinDBCache = std::min(nCoinDBCache, nMaxCoinsDBCache << 20); // cap total coins db cache
     nTotalCache -= nCoinDBCache;
-    nCoinCacheSize = nTotalCache / 300; // coins in memory require around 300 bytes
+    nCoinCacheUsage = nTotalCache; // the rest goes to in-memory cache
+    int64_t nMempoolSizeMax = GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000;
+    printf("Cache configuration:\n");
+    printf("* Using %.1fMiB for block index database\n", nBlockTreeDBCache * (1.0 / 1024 / 1024));
+    printf("* Using %.1fMiB for chain state database\n", nCoinDBCache * (1.0 / 1024 / 1024));
+    printf("* Using %.1fMiB for in-memory UTXO set (plus up to %.1fMiB of unused mempool space)\n", nCoinCacheUsage * (1.0 / 1024 / 1024), nMempoolSizeMax * (1.0 / 1024 / 1024));
+
 
     bool fLoaded = false;
     while (!fLoaded) {
