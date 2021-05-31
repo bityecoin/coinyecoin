@@ -173,7 +173,7 @@ void BitcoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
-    overviewAction = new QAction(QIcon(":/icons/overview"), tr("&Wow"), this);
+    overviewAction = new QAction(QIcon(":/icons/overview"), tr("&The Shire"), this);
     overviewAction->setStatusTip(tr("Show general overview of wallet"));
     overviewAction->setToolTip(overviewAction->statusTip());
     overviewAction->setCheckable(true);

@@ -374,7 +374,7 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
     </message>
     <message>
         <location line="-15"/>
-        <source>&amp;Wow</source>
+        <source>&amp;The Shire</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
