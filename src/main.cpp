@@ -1099,38 +1099,13 @@ int static generateMTRandom(unsigned int s, int range)
     return dist(gen);
 }
 
-static const int64 nDiffChangeTarget = 145000; // Patch effective @ block 145000
+//static const int64 nDiffChangeTarget = 145000; // Patch effective @ block 145000
 
+
+// Coinye moving to a flat reward block 5/31/2021 (2500/block)
 int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
 {
-    int64 nSubsidy = 500000 * COIN;
-
-    std::string cseed_str = prevHash.ToString().substr(7,7);
-    const char* cseed = cseed_str.c_str();
-    long seed = hex2long(cseed);
-    int rand = generateMTRandom(seed, 999999);
-    int rand1 = 0;
-
-    if(nHeight < 100000)
-    {
-        nSubsidy = (1 + rand) * COIN;
-    }
-    else if(nHeight < 145000)
-    {
-        cseed_str = prevHash.ToString().substr(7,7);
-        cseed = cseed_str.c_str();
-        seed = hex2long(cseed);
-        rand1 = generateMTRandom(seed, 499999);
-        nSubsidy = (1 + rand1) * COIN;
-    }
-    else if(nHeight < 600000)
-    {
-        nSubsidy >>= (nHeight / 100000);
-    }
-    else
-    {
-        nSubsidy = 10000 * COIN;
-    }
+    int64 nSubsidy = 2500 * COIN;
 
     return nSubsidy + nFees;
 }
