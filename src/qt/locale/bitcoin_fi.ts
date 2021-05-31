@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About coinyecoin</source>
-        <translation>Tietoa coinyecoinista</translation>
+        <source>About CoinyeCoin</source>
+        <translation>Tietoa CoinyeCoinista</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;coinyecoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;coinyecoin&lt;/b&gt; versio</translation>
+        <source>&lt;b&gt;CoinyeCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;CoinyeCoin&lt;/b&gt; versio</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -45,7 +45,7 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="+0"/>
-        <source>2013-%1 The coinyecoin developers</source>
+        <source>2013-%1 The CoinyeCoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -78,8 +78,8 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your coinyecoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Nämä ovat coinyecoin-osoitteesi joihin voit vastaanottaa maksuja. Voit haluta antaa jokaiselle maksajalle omansa, että pystyt seuraamaan keneltä maksut tulevat.</translation>
+        <source>These are your CoinyeCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Nämä ovat CoinyeCoin-osoitteesi joihin voit vastaanottaa maksuja. Voit haluta antaa jokaiselle maksajalle omansa, että pystyt seuraamaan keneltä maksut tulevat.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -93,8 +93,8 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a coinyecoin address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat coinyecoin-osoitteen</translation>
+        <source>Sign a message to prove you own a CoinyeCoin address</source>
+        <translation>Allekirjoita viesti todistaaksesi, että omistat CoinyeCoin-osoitteen</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -118,8 +118,8 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified coinyecoin address</source>
-        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä coinyecoin-osoitteella</translation>
+        <source>Verify a message to ensure it was signed with a specified CoinyeCoin address</source>
+        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä CoinyeCoin-osoitteella</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -133,7 +133,7 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your coinyecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your CoinyeCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -286,8 +286,8 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="-56"/>
-        <source>coinyecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coinyecoins from being stolen by malware infecting your computer.</source>
-        <translation>coinyecoin sulkeutuu lopettaakseen salausprosessin. Muista, että salattukaan lompakko ei täysin suojaa sitä haittaohjelmien aiheuttamilta varkauksilta.</translation>
+        <source>CoinyeCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your CoinyeCoins from being stolen by malware infecting your computer.</source>
+        <translation>CoinyeCoin sulkeutuu lopettaakseen salausprosessin. Muista, että salattukaan lompakko ei täysin suojaa sitä haittaohjelmien aiheuttamilta varkauksilta.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -371,7 +371,7 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     <message>
         <location line="-14"/>
         <source>Show the list of addresses for receiving payments</source>
-        <translation>Näytä coinyecoinien vastaanottamiseen käytetyt osoitteet</translation>
+        <translation>Näytä CoinyeCoinien vastaanottamiseen käytetyt osoitteet</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -385,8 +385,8 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about coinyecoin</source>
-        <translation>Näytä tietoa coinyecoin-projektista</translation>
+        <source>Show information about CoinyeCoin</source>
+        <translation>Näytä tietoa CoinyeCoin-projektista</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -430,13 +430,13 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a coinyecoin address</source>
-        <translation>Lähetä kolikoita coinyecoin-osoitteeseen</translation>
+        <source>Send coins to a CoinyeCoin address</source>
+        <translation>Lähetä kolikoita CoinyeCoin-osoitteeseen</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for coinyecoin</source>
-        <translation>Muuta coinyecoinin konfiguraatioasetuksia</translation>
+        <source>Modify configuration options for CoinyeCoin</source>
+        <translation>Muuta CoinyeCoinin konfiguraatioasetuksia</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -466,8 +466,8 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>coinyecoin</source>
-        <translation>coinyecoin</translation>
+        <source>CoinyeCoin</source>
+        <translation>CoinyeCoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -491,8 +491,8 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About coinyecoin</source>
-        <translation>&amp;Tietoa coinyecoinista</translation>
+        <source>&amp;About CoinyeCoin</source>
+        <translation>&amp;Tietoa CoinyeCoinista</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -502,7 +502,7 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     <message>
         <location line="+1"/>
         <source>Show or hide the main Window</source>
-        <translation>Näytä tai piilota coinyecoin-ikkuna</translation>
+        <translation>Näytä tai piilota CoinyeCoin-ikkuna</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -511,13 +511,13 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your coinyecoin addresses to prove you own them</source>
-        <translation>Allekirjoita viestisi omalla coinyecoin -osoitteellasi todistaaksesi, että omistat ne</translation>
+        <source>Sign messages with your CoinyeCoin addresses to prove you own them</source>
+        <translation>Allekirjoita viestisi omalla CoinyeCoin -osoitteellasi todistaaksesi, että omistat ne</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified coinyecoin addresses</source>
-        <translation>Varmista, että viestisi on allekirjoitettu määritetyllä coinyecoin -osoitteella</translation>
+        <source>Verify messages to ensure they were signed with specified CoinyeCoin addresses</source>
+        <translation>Varmista, että viestisi on allekirjoitettu määritetyllä CoinyeCoin -osoitteella</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -547,13 +547,13 @@ Tämä ohjelma sisältää OpenSSL projektin OpenSSL työkalupakin (http://www.o
     </message>
     <message>
         <location line="+47"/>
-        <source>coinyecoin client</source>
-        <translation>coinyecoin-asiakas</translation>
+        <source>CoinyeCoin client</source>
+        <translation>CoinyeCoin-asiakas</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to coinyecoin network</source>
-        <translation><numerusform>%n aktiivinen yhteys coinyecoin-verkkoon</numerusform><numerusform>%n aktiivista yhteyttä coinyecoin-verkkoon</numerusform></translation>
+        <source>%n active connection(s) to CoinyeCoin network</source>
+        <translation><numerusform>%n aktiivinen yhteys CoinyeCoin-verkkoon</numerusform><numerusform>%n aktiivista yhteyttä CoinyeCoin-verkkoon</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -666,8 +666,8 @@ Osoite: %4</translation>
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid coinyecoin address or malformed URI parameters.</source>
-        <translation>URIa ei voitu jäsentää! Tämä voi johtua kelvottomasta coinyecoin-osoitteesta tai virheellisistä URI parametreista.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid CoinyeCoin address or malformed URI parameters.</source>
+        <translation>URIa ei voitu jäsentää! Tämä voi johtua kelvottomasta CoinyeCoin-osoitteesta tai virheellisistä URI parametreista.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -681,8 +681,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. coinyecoin can no longer continue safely and will quit.</source>
-        <translation>Peruuttamaton virhe on tapahtunut. coinyecoin ei voi enää jatkaa turvallisesti ja sammutetaan.</translation>
+        <source>A fatal error occurred. CoinyeCoin can no longer continue safely and will quit.</source>
+        <translation>Peruuttamaton virhe on tapahtunut. CoinyeCoin ei voi enää jatkaa turvallisesti ja sammutetaan.</translation>
     </message>
 </context>
 <context>
@@ -747,8 +747,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid coinyecoin address.</source>
-        <translation>Antamasi osoite &quot;%1&quot; ei ole validi coinyecoin-osoite.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid CoinyeCoin address.</source>
+        <translation>Antamasi osoite &quot;%1&quot; ei ole validi CoinyeCoin-osoite.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -766,8 +766,8 @@ Osoite: %4</translation>
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>coinyecoin-Qt</source>
-        <translation>coinyecoin-Qt</translation>
+        <source>CoinyeCoin-Qt</source>
+        <translation>CoinyeCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -829,13 +829,13 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start coinyecoin after logging in to the system.</source>
-        <translation>Käynnistä coinyecoin kirjautumisen yhteydessä.</translation>
+        <source>Automatically start CoinyeCoin after logging in to the system.</source>
+        <translation>Käynnistä CoinyeCoin kirjautumisen yhteydessä.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start coinyecoin on system login</source>
-        <translation>&amp;Käynnistä coinyecoin kirjautumisen yhteydessä</translation>
+        <source>&amp;Start CoinyeCoin on system login</source>
+        <translation>&amp;Käynnistä CoinyeCoin kirjautumisen yhteydessä</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -854,8 +854,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the coinyecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Avaa coinyecoin-asiakasohjelman portti reitittimellä automaattisesti. Tämä toimii vain, jos reitittimesi tukee UPnP:tä ja se on käytössä.</translation>
+        <source>Automatically open the CoinyeCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Avaa CoinyeCoin-asiakasohjelman portti reitittimellä automaattisesti. Tämä toimii vain, jos reitittimesi tukee UPnP:tä ja se on käytössä.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -864,8 +864,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the coinyecoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Ota yhteys coinyecoin-verkkoon SOCKS-proxyn läpi (esimerkiksi kun haluat käyttää Tor-verkkoa).</translation>
+        <source>Connect to the CoinyeCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Ota yhteys CoinyeCoin-verkkoon SOCKS-proxyn läpi (esimerkiksi kun haluat käyttää Tor-verkkoa).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -920,7 +920,7 @@ Osoite: %4</translation>
     <message>
         <location line="+7"/>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
-        <translation>Ikkunaa suljettaessa vain pienentää coinyecoin-ohjelman ikkunan lopettamatta itse ohjelmaa. Kun tämä asetus on valittuna, ohjelman voi sulkea vain valitsemalla Lopeta ohjelman valikosta.</translation>
+        <translation>Ikkunaa suljettaessa vain pienentää CoinyeCoin-ohjelman ikkunan lopettamatta itse ohjelmaa. Kun tämä asetus on valittuna, ohjelman voi sulkea vain valitsemalla Lopeta ohjelman valikosta.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -939,23 +939,23 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting coinyecoin.</source>
-        <translation>Tässä voit määritellä käyttöliittymän kielen. Muutokset astuvat voimaan seuraavan kerran, kun coinyecoin käynnistetään.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting CoinyeCoin.</source>
+        <translation>Tässä voit määritellä käyttöliittymän kielen. Muutokset astuvat voimaan seuraavan kerran, kun CoinyeCoin käynnistetään.</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>Yksikkö jona coinyecoin-määrät näytetään</translation>
+        <translation>Yksikkö jona CoinyeCoin-määrät näytetään</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Valitse mitä yksikköä käytetään ensisijaisesti coinyecoin-määrien näyttämiseen.</translation>
+        <translation>Valitse mitä yksikköä käytetään ensisijaisesti CoinyeCoin-määrien näyttämiseen.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show coinyecoin addresses in the transaction list or not.</source>
-        <translation>Näytetäänkö coinyecoin-osoitteet rahansiirrot listassa vai ei.</translation>
+        <source>Whether to show CoinyeCoin addresses in the transaction list or not.</source>
+        <translation>Näytetäänkö CoinyeCoin-osoitteet rahansiirrot listassa vai ei.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1006,8 +1006,8 @@ Osoite: %4</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting coinyecoin.</source>
-        <translation>Tämä asetus astuu voimaan seuraavalla kerralla, kun coinyecoin käynnistetään.</translation>
+        <source>This setting will take effect after restarting CoinyeCoin.</source>
+        <translation>Tämä asetus astuu voimaan seuraavalla kerralla, kun CoinyeCoin käynnistetään.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1025,8 +1025,8 @@ Osoite: %4</translation>
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the coinyecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Näytetyt tiedot eivät välttämättä ole ajantasalla. Lompakkosi synkronoituu coinyecoin-verkon kanssa automaattisesti yhteyden muodostamisen jälkeen, mutta synkronointi on vielä meneillään.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the CoinyeCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Näytetyt tiedot eivät välttämättä ole ajantasalla. Lompakkosi synkronoituu CoinyeCoin-verkon kanssa automaattisesti yhteyden muodostamisen jälkeen, mutta synkronointi on vielä meneillään.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1061,12 +1061,12 @@ Osoite: %4</translation>
     <message>
         <location line="-101"/>
         <source>Your current balance</source>
-        <translation>Tililläsi tällä hetkellä olevien coinyecoinien määrä</translation>
+        <translation>Tililläsi tällä hetkellä olevien CoinyeCoinien määrä</translation>
     </message>
     <message>
         <location line="+29"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
-        <translation>Niiden saapuvien rahansiirtojen määrä, joita coinyecoin-verkko ei vielä ole ehtinyt vahvistaa ja siten eivät vielä näy saldossa.</translation>
+        <translation>Niiden saapuvien rahansiirtojen määrä, joita CoinyeCoin-verkko ei vielä ole ehtinyt vahvistaa ja siten eivät vielä näy saldossa.</translation>
     </message>
     <message>
         <location filename="../overviewpage.cpp" line="+116"/>
@@ -1079,7 +1079,7 @@ Osoite: %4</translation>
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start coinyecoin: click-to-pay handler</source>
+        <source>Cannot start CoinyeCoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1229,8 +1229,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the coinyecoin-Qt help message to get a list with possible coinyecoin command-line options.</source>
-        <translation>Näytä coinyecoin-Qt komentoriviparametrien ohjesivu, jossa on listattuna mahdolliset komentoriviparametrit.</translation>
+        <source>Show the CoinyeCoin-Qt help message to get a list with possible CoinyeCoin command-line options.</source>
+        <translation>Näytä CoinyeCoin-Qt komentoriviparametrien ohjesivu, jossa on listattuna mahdolliset komentoriviparametrit.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1249,13 +1249,13 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>coinyecoin - Debug window</source>
-        <translation>coinyecoin - Debug ikkuna</translation>
+        <source>CoinyeCoin - Debug window</source>
+        <translation>CoinyeCoin - Debug ikkuna</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>coinyecoin Core</source>
-        <translation>coinyecoin-ydin</translation>
+        <source>CoinyeCoin Core</source>
+        <translation>CoinyeCoin-ydin</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1264,7 +1264,7 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the coinyecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the CoinyeCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Avaa lokitiedosto nykyisestä data-kansiosta. Tämä voi viedä useamman sekunnin, jos lokitiedosto on iso.</translation>
     </message>
     <message>
@@ -1274,8 +1274,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the coinyecoin RPC console.</source>
-        <translation>Tervetuloa coinyecoin RPC konsoliin.</translation>
+        <source>Welcome to the CoinyeCoin RPC console.</source>
+        <translation>Tervetuloa CoinyeCoin RPC konsoliin.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1300,7 +1300,7 @@ Osoite: %4</translation>
         <location line="+5"/>
         <location line="+5"/>
         <source>Send Coins</source>
-        <translation>Lähetä coinyecoineja</translation>
+        <translation>Lähetä CoinyeCoineja</translation>
     </message>
     <message>
         <location line="+50"/>
@@ -1350,7 +1350,7 @@ Osoite: %4</translation>
     <message>
         <location line="+5"/>
         <source>Confirm send coins</source>
-        <translation>Hyväksy coinyecoinien lähettäminen</translation>
+        <translation>Hyväksy CoinyeCoinien lähettäminen</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1370,7 +1370,7 @@ Osoite: %4</translation>
     <message>
         <location line="+5"/>
         <source>The amount to pay must be larger than 0.</source>
-        <translation>Maksettavan summan tulee olla suurempi kuin 0 coinyecoinia.</translation>
+        <translation>Maksettavan summan tulee olla suurempi kuin 0 CoinyeCoinia.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1395,7 +1395,7 @@ Osoite: %4</translation>
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Virhe: Rahansiirto hylättiin.  Tämä voi tapahtua jos jotkin coinyecoineistasi on jo käytetty, esimerkiksi jos olet käyttänyt kopiota wallet.dat-lompakkotiedostosta ja coinyecoinit on merkitty käytetyksi vain kopiossa.</translation>
+        <translation>Virhe: Rahansiirto hylättiin.  Tämä voi tapahtua jos jotkin CoinyeCoineistasi on jo käytetty, esimerkiksi jos olet käyttänyt kopiota wallet.dat-lompakkotiedostosta ja CoinyeCoinit on merkitty käytetyksi vain kopiossa.</translation>
     </message>
 </context>
 <context>
@@ -1417,7 +1417,7 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
+        <source>The address to send the payment to (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1458,8 +1458,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Anna coinyecoin-osoite (esim. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Anna CoinyeCoin-osoite (esim. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
 </context>
 <context>
@@ -1481,8 +1481,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Osoite, jolla viesti allekirjoitetaan (esimerkiksi DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address to sign the message with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Osoite, jolla viesti allekirjoitetaan (esimerkiksi 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1523,8 +1523,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this coinyecoin address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän coinyecoin-osoitteen</translation>
+        <source>Sign the message to prove you own this CoinyeCoin address</source>
+        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän CoinyeCoin-osoitteen</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1554,13 +1554,13 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Osoite, jolla viesti allekirjoitettiin (esimerkiksi DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address the message was signed with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Osoite, jolla viesti allekirjoitettiin (esimerkiksi 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified coinyecoin address</source>
-        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä coinyecoin-osoitteella</translation>
+        <source>Verify the message to ensure it was signed with the specified CoinyeCoin address</source>
+        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä CoinyeCoin-osoitteella</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1575,8 +1575,8 @@ Osoite: %4</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Anna coinyecoin-osoite (esim. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Anna CoinyeCoin-osoite (esim. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1585,8 +1585,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter coinyecoin signature</source>
-        <translation>Syötä coinyecoin-allekirjoitus</translation>
+        <source>Enter CoinyeCoin signature</source>
+        <translation>Syötä CoinyeCoin-allekirjoitus</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1659,7 +1659,7 @@ Osoite: %4</translation>
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The coinyecoin developers</source>
+        <source>The CoinyeCoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1965,7 +1965,7 @@ Osoite: %4</translation>
     <message>
         <location line="+2"/>
         <source>Destination address of transaction.</source>
-        <translation>Rahansiirron kohteen coinyecoin-osoite</translation>
+        <translation>Rahansiirron kohteen CoinyeCoin-osoite</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2147,7 +2147,7 @@ Osoite: %4</translation>
     <message>
         <location filename="../walletmodel.cpp" line="+193"/>
         <source>Send Coins</source>
-        <translation>Lähetä coinyecoineja</translation>
+        <translation>Lähetä CoinyeCoineja</translation>
     </message>
 </context>
 <context>
@@ -2197,8 +2197,8 @@ Osoite: %4</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>coinyecoin version</source>
-        <translation>coinyecoinin versio</translation>
+        <source>CoinyeCoin version</source>
+        <translation>CoinyeCoinin versio</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2207,8 +2207,8 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or coinyecoind</source>
-        <translation>Lähetä käsky palvelimelle tai coinyecoind:lle</translation>
+        <source>Send command to -server or CoinyeCoind</source>
+        <translation>Lähetä käsky palvelimelle tai CoinyeCoind:lle</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2227,13 +2227,13 @@ Osoite: %4</translation>
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: coinyecoin.conf)</source>
-        <translation>Määritä asetustiedosto (oletus: coinyecoin.conf)</translation>
+        <source>Specify configuration file (default: CoinyeCoin.conf)</source>
+        <translation>Määritä asetustiedosto (oletus: CoinyeCoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: coinyecoind.pid)</source>
-        <translation>Määritä pid-tiedosto (oletus: coinyecoin.pid)</translation>
+        <source>Specify pid file (default: CoinyeCoind.pid)</source>
+        <translation>Määritä pid-tiedosto (oletus: CoinyeCoin.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2310,13 +2310,13 @@ Osoite: %4</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=coinyecoinrpc
+rpcuser=CoinyeCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;CoinyeCoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2332,7 +2332,7 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. coinyecoin is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. CoinyeCoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2377,8 +2377,8 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong coinyecoin will not work properly.</source>
-        <translation>Varoitus: Tarkista että tietokoneesi kellonaika ja päivämäärä ovat paikkansapitäviä! coinyecoin ei toimi oikein väärällä päivämäärällä ja/tai kellonajalla.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong CoinyeCoin will not work properly.</source>
+        <translation>Varoitus: Tarkista että tietokoneesi kellonaika ja päivämäärä ovat paikkansapitäviä! CoinyeCoin ei toimi oikein väärällä päivämäärällä ja/tai kellonajalla.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2627,8 +2627,8 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the coinyecoin Wiki for SSL setup instructions)</source>
-        <translation>SSL asetukset (katso coinyecoin Wikistä tarkemmat SSL ohjeet)</translation>
+        <source>SSL options: (see the CoinyeCoin Wiki for SSL setup instructions)</source>
+        <translation>SSL asetukset (katso CoinyeCoin Wikistä tarkemmat SSL ohjeet)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2818,13 +2818,13 @@ TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of coinyecoin</source>
-        <translation>Virhe ladattaessa wallet.dat-tiedostoa: Tarvitset uudemman version coinyecoinista</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of CoinyeCoin</source>
+        <translation>Virhe ladattaessa wallet.dat-tiedostoa: Tarvitset uudemman version CoinyeCoinista</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart coinyecoin to complete</source>
-        <translation>Lompakko tarvitsee uudelleenkirjoittaa: käynnistä coinyecoin uudelleen</translation>
+        <source>Wallet needed to be rewritten: restart CoinyeCoin to complete</source>
+        <translation>Lompakko tarvitsee uudelleenkirjoittaa: käynnistä CoinyeCoin uudelleen</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2883,8 +2883,8 @@ TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH)</translation>
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. coinyecoin is probably already running.</source>
-        <translation>Kytkeytyminen %s ei onnistu tällä tietokoneella. coinyecoin on todennäköisesti jo ajamassa.</translation>
+        <source>Unable to bind to %s on this computer. CoinyeCoin is probably already running.</source>
+        <translation>Kytkeytyminen %s ei onnistu tällä tietokoneella. CoinyeCoin on todennäköisesti jo ajamassa.</translation>
     </message>
     <message>
         <location line="+64"/>

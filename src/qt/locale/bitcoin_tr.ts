@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About coinyecoin</source>
-        <translation>coinyecoin hakkında</translation>
+        <source>About CoinyeCoin</source>
+        <translation>CoinyeCoin hakkında</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;coinyecoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;coinyecoin&lt;/b&gt; sürüm</translation>
+        <source>&lt;b&gt;CoinyeCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;CoinyeCoin&lt;/b&gt; sürüm</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -44,8 +44,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
-        <source>2013-%1 The coinyecoin developers</source>
-        <translation>2013-%1 coinyecoin geliştiricileri</translation>
+        <source>2013-%1 The CoinyeCoin developers</source>
+        <translation>2013-%1 CoinyeCoin geliştiricileri</translation>
     </message>
 </context>
 <context>
@@ -77,8 +77,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your coinyecoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Bunlar, ödeme almak için coinyecoin adresleridir. Kimin ödeme yaptığını izleyebilmek için her ödeme yollaması gereken kişiye değişik bir adres verebilirsiniz.</translation>
+        <source>These are your CoinyeCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Bunlar, ödeme almak için CoinyeCoin adresleridir. Kimin ödeme yaptığını izleyebilmek için her ödeme yollaması gereken kişiye değişik bir adres verebilirsiniz.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -92,8 +92,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a coinyecoin address</source>
-        <translation>Bir coinyecoin adresinin sizin olduğunu ispatlamak için mesaj imzalayın</translation>
+        <source>Sign a message to prove you own a CoinyeCoin address</source>
+        <translation>Bir CoinyeCoin adresinin sizin olduğunu ispatlamak için mesaj imzalayın</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -117,8 +117,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified coinyecoin address</source>
-        <translation>Belirtilen coinyecoin adresi ile imzalandığını doğrulamak için bir mesajı kontrol et</translation>
+        <source>Verify a message to ensure it was signed with a specified CoinyeCoin address</source>
+        <translation>Belirtilen CoinyeCoin adresi ile imzalandığını doğrulamak için bir mesajı kontrol et</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -132,8 +132,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your coinyecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Bunlar ödeme yapmak için kullanacağınız coinyecoin adreslerinizdir. coinyecoin yollamadan önce meblağı ve alıcı adresini daima kontrol ediniz.</translation>
+        <source>These are your CoinyeCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Bunlar ödeme yapmak için kullanacağınız CoinyeCoin adreslerinizdir. CoinyeCoin yollamadan önce meblağı ve alıcı adresini daima kontrol ediniz.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -285,8 +285,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>coinyecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coinyecoins from being stolen by malware infecting your computer.</source>
-        <translation>Şifreleme işlemini tamamlamak için coinyecoin şimdi kapanacaktır. Cüzdanınızı şifrelemenin, coinyecoinlerinizin bilgisayara bulaşan kötücül bir yazılım tarafından çalınmaya karşı tamamen koruyamayacağını unutmayınız.</translation>
+        <source>CoinyeCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your CoinyeCoins from being stolen by malware infecting your computer.</source>
+        <translation>Şifreleme işlemini tamamlamak için CoinyeCoin şimdi kapanacaktır. Cüzdanınızı şifrelemenin, CoinyeCoinlerinizin bilgisayara bulaşan kötücül bir yazılım tarafından çalınmaya karşı tamamen koruyamayacağını unutmayınız.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -384,8 +384,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about coinyecoin</source>
-        <translation>coinyecoin hakkında bilgi göster</translation>
+        <source>Show information about CoinyeCoin</source>
+        <translation>CoinyeCoin hakkında bilgi göster</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -429,13 +429,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a coinyecoin address</source>
-        <translation>Bir coinyecoin adresine coinyecoin yolla</translation>
+        <source>Send coins to a CoinyeCoin address</source>
+        <translation>Bir CoinyeCoin adresine CoinyeCoin yolla</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for coinyecoin</source>
-        <translation>coinyecoin seçeneklerinin yapılandırmasını değiştir</translation>
+        <source>Modify configuration options for CoinyeCoin</source>
+        <translation>CoinyeCoin seçeneklerinin yapılandırmasını değiştir</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -465,8 +465,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>coinyecoin</source>
-        <translation>coinyecoin</translation>
+        <source>CoinyeCoin</source>
+        <translation>CoinyeCoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -490,8 +490,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About coinyecoin</source>
-        <translation>coinyecoin &amp;Hakkında</translation>
+        <source>&amp;About CoinyeCoin</source>
+        <translation>CoinyeCoin &amp;Hakkında</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -510,13 +510,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your coinyecoin addresses to prove you own them</source>
-        <translation>Mesajları adreslerin size ait olduğunu ispatlamak için coinyecoin adresleri ile imzala</translation>
+        <source>Sign messages with your CoinyeCoin addresses to prove you own them</source>
+        <translation>Mesajları adreslerin size ait olduğunu ispatlamak için CoinyeCoin adresleri ile imzala</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified coinyecoin addresses</source>
-        <translation>Belirtilen coinyecoin adresleri ile imzalandıklarından emin olmak için mesajları kontrol et</translation>
+        <source>Verify messages to ensure they were signed with specified CoinyeCoin addresses</source>
+        <translation>Belirtilen CoinyeCoin adresleri ile imzalandıklarından emin olmak için mesajları kontrol et</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -546,13 +546,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+47"/>
-        <source>coinyecoin client</source>
-        <translation>coinyecoin istemcisi</translation>
+        <source>CoinyeCoin client</source>
+        <translation>CoinyeCoin istemcisi</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to coinyecoin network</source>
-        <translation><numerusform>coinyecoin şebekesine %n faal bağlantı</numerusform><numerusform>coinyecoin şebekesine %n faal bağlantı</numerusform></translation>
+        <source>%n active connection(s) to CoinyeCoin network</source>
+        <translation><numerusform>CoinyeCoin şebekesine %n faal bağlantı</numerusform><numerusform>CoinyeCoin şebekesine %n faal bağlantı</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -666,8 +666,8 @@ Adres: %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid coinyecoin address or malformed URI parameters.</source>
-        <translation>URI okunamadı! Sebebi geçersiz bir coinyecoin adresi veya hatalı URI parametreleri olabilir.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid CoinyeCoin address or malformed URI parameters.</source>
+        <translation>URI okunamadı! Sebebi geçersiz bir CoinyeCoin adresi veya hatalı URI parametreleri olabilir.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -681,8 +681,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. coinyecoin can no longer continue safely and will quit.</source>
-        <translation>Ciddi bir hata oluştu. coinyecoin artık güvenli bir şekilde işlemeye devam edemez ve kapanacaktır.</translation>
+        <source>A fatal error occurred. CoinyeCoin can no longer continue safely and will quit.</source>
+        <translation>Ciddi bir hata oluştu. CoinyeCoin artık güvenli bir şekilde işlemeye devam edemez ve kapanacaktır.</translation>
     </message>
 </context>
 <context>
@@ -747,8 +747,8 @@ Adres: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid coinyecoin address.</source>
-        <translation>Girilen &quot;%1&quot; adresi geçerli bir coinyecoin adresi değildir.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid CoinyeCoin address.</source>
+        <translation>Girilen &quot;%1&quot; adresi geçerli bir CoinyeCoin adresi değildir.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -766,8 +766,8 @@ Adres: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>coinyecoin-Qt</source>
-        <translation>coinyecoin-Qt</translation>
+        <source>CoinyeCoin-Qt</source>
+        <translation>CoinyeCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -829,13 +829,13 @@ Adres: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start coinyecoin after logging in to the system.</source>
-        <translation>Sistemde oturum açıldığında coinyecoin&apos;i otomatik olarak başlat.</translation>
+        <source>Automatically start CoinyeCoin after logging in to the system.</source>
+        <translation>Sistemde oturum açıldığında CoinyeCoin&apos;i otomatik olarak başlat.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start coinyecoin on system login</source>
-        <translation>coinyecoin&apos;i sistem oturumuyla &amp;başlat</translation>
+        <source>&amp;Start CoinyeCoin on system login</source>
+        <translation>CoinyeCoin&apos;i sistem oturumuyla &amp;başlat</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -854,8 +854,8 @@ Adres: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the coinyecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Yönlendiricide coinyecoin istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
+        <source>Automatically open the CoinyeCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Yönlendiricide CoinyeCoin istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -864,8 +864,8 @@ Adres: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the coinyecoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>coinyecoin şebekesine SOCKS vekil sunucusu vasıtasıyla bağlan (mesela Tor ile bağlanıldığında).</translation>
+        <source>Connect to the CoinyeCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>CoinyeCoin şebekesine SOCKS vekil sunucusu vasıtasıyla bağlan (mesela Tor ile bağlanıldığında).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -939,8 +939,8 @@ Adres: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting coinyecoin.</source>
-        <translation>Kullanıcı arayüzünün dili burada belirtilebilir. Bu ayar coinyecoin tekrar başlatıldığında etkinleşecektir.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting CoinyeCoin.</source>
+        <translation>Kullanıcı arayüzünün dili burada belirtilebilir. Bu ayar CoinyeCoin tekrar başlatıldığında etkinleşecektir.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -950,12 +950,12 @@ Adres: %4
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>coinyecoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
+        <translation>CoinyeCoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show coinyecoin addresses in the transaction list or not.</source>
-        <translation>Muamele listesinde coinyecoin adreslerinin gösterilip gösterilmeyeceklerini belirler.</translation>
+        <source>Whether to show CoinyeCoin addresses in the transaction list or not.</source>
+        <translation>Muamele listesinde CoinyeCoin adreslerinin gösterilip gösterilmeyeceklerini belirler.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1006,8 +1006,8 @@ Adres: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting coinyecoin.</source>
-        <translation>Bu ayarlar coinyecoin tekrar başlatıldığında etkinleşecektir.</translation>
+        <source>This setting will take effect after restarting CoinyeCoin.</source>
+        <translation>Bu ayarlar CoinyeCoin tekrar başlatıldığında etkinleşecektir.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1025,7 +1025,7 @@ Adres: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the coinyecoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the CoinyeCoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Görüntülenen veriler zaman aşımına uğramış olabilir. Bağlantı kurulduğunda cüzdanınız otomatik olarak şebeke ile eşleşir ancak bu işlem henüz tamamlanmamıştır.</translation>
     </message>
     <message>
@@ -1079,8 +1079,8 @@ Adres: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start coinyecoin: click-to-pay handler</source>
-        <translation>coinyecoin başlatılamadı: tıkla-ve-öde yöneticisi</translation>
+        <source>Cannot start CoinyeCoin: click-to-pay handler</source>
+        <translation>CoinyeCoin başlatılamadı: tıkla-ve-öde yöneticisi</translation>
     </message>
 </context>
 <context>
@@ -1229,8 +1229,8 @@ Adres: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the coinyecoin-Qt help message to get a list with possible coinyecoin command-line options.</source>
-        <translation>Mevcut coinyecoin komut satırı seçeneklerinin listesini içeren coinyecoin-Qt yardımını göster.</translation>
+        <source>Show the CoinyeCoin-Qt help message to get a list with possible CoinyeCoin command-line options.</source>
+        <translation>Mevcut CoinyeCoin komut satırı seçeneklerinin listesini içeren CoinyeCoin-Qt yardımını göster.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1249,13 +1249,13 @@ Adres: %4
     </message>
     <message>
         <location line="-104"/>
-        <source>coinyecoin - Debug window</source>
-        <translation>coinyecoin - Hata ayıklama penceresi</translation>
+        <source>CoinyeCoin - Debug window</source>
+        <translation>CoinyeCoin - Hata ayıklama penceresi</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>coinyecoin Core</source>
-        <translation>coinyecoin Çekirdeği</translation>
+        <source>CoinyeCoin Core</source>
+        <translation>CoinyeCoin Çekirdeği</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1264,8 +1264,8 @@ Adres: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the coinyecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Güncel veri klasöründen coinyecoin hata ayıklama kütük dosyasını açar. Büyük kütük dosyaları için bu birkaç saniye alabilir.</translation>
+        <source>Open the CoinyeCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Güncel veri klasöründen CoinyeCoin hata ayıklama kütük dosyasını açar. Büyük kütük dosyaları için bu birkaç saniye alabilir.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1274,8 +1274,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the coinyecoin RPC console.</source>
-        <translation>coinyecoin RPC konsoluna hoş geldiniz.</translation>
+        <source>Welcome to the CoinyeCoin RPC console.</source>
+        <translation>CoinyeCoin RPC konsoluna hoş geldiniz.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1300,7 +1300,7 @@ Adres: %4
         <location line="+5"/>
         <location line="+5"/>
         <source>Send Coins</source>
-        <translation>coinyecoin yolla</translation>
+        <translation>CoinyeCoin yolla</translation>
     </message>
     <message>
         <location line="+50"/>
@@ -1417,8 +1417,8 @@ Adres: %4
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Ödemenin gönderileceği adres (mesela DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address to send the payment to (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Ödemenin gönderileceği adres (mesela 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -1458,8 +1458,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>coinyecoin adresi giriniz (mesela DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>CoinyeCoin adresi giriniz (mesela 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
 </context>
 <context>
@@ -1481,8 +1481,8 @@ Adres: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Mesajın imzalanmasında kullanılacak adres (mesela DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address to sign the message with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Mesajın imzalanmasında kullanılacak adres (mesela 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1523,8 +1523,8 @@ Adres: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this coinyecoin address</source>
-        <translation>Bu coinyecoin adresinin sizin olduğunu ispatlamak için mesajı imzalayın</translation>
+        <source>Sign the message to prove you own this CoinyeCoin address</source>
+        <translation>Bu CoinyeCoin adresinin sizin olduğunu ispatlamak için mesajı imzalayın</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1554,13 +1554,13 @@ Adres: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Mesajı imzalamak için kullanılmış olan adres (mesela DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address the message was signed with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Mesajı imzalamak için kullanılmış olan adres (mesela 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified coinyecoin address</source>
-        <translation>Belirtilen coinyecoin adresi ile imzalandığını doğrulamak için mesajı kontrol et</translation>
+        <source>Verify the message to ensure it was signed with the specified CoinyeCoin address</source>
+        <translation>Belirtilen CoinyeCoin adresi ile imzalandığını doğrulamak için mesajı kontrol et</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1575,8 +1575,8 @@ Adres: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>coinyecoin adresi giriniz (mesela DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>CoinyeCoin adresi giriniz (mesela 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1585,8 +1585,8 @@ Adres: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter coinyecoin signature</source>
-        <translation>coinyecoin imzası gir</translation>
+        <source>Enter CoinyeCoin signature</source>
+        <translation>CoinyeCoin imzası gir</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1659,8 +1659,8 @@ Adres: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The coinyecoin developers</source>
-        <translation>coinyecoin geliştiricileri</translation>
+        <source>The CoinyeCoin developers</source>
+        <translation>CoinyeCoin geliştiricileri</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1794,7 +1794,7 @@ Adres: %4
     <message>
         <location line="+3"/>
         <source>Generated coins must mature 50 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Oluşturulan coinyecoin&apos;lerin harcanabilmelerinden önce 50 blok beklemeleri gerekmektedir. Bu blok, oluşturduğunuzda blok zincirine eklenmesi için ağda yayınlandı. Zincire eklenmesi başarısız olursa, durumu &quot;kabul edilmedi&quot; olarak değiştirilecek ve harcanamayacaktır. Bu, bazen başka bir düğüm sizden birkaç saniye önce ya da sonra blok oluşturursa meydana gelebilir.</translation>
+        <translation>Oluşturulan CoinyeCoin&apos;lerin harcanabilmelerinden önce 50 blok beklemeleri gerekmektedir. Bu blok, oluşturduğunuzda blok zincirine eklenmesi için ağda yayınlandı. Zincire eklenmesi başarısız olursa, durumu &quot;kabul edilmedi&quot; olarak değiştirilecek ve harcanamayacaktır. Bu, bazen başka bir düğüm sizden birkaç saniye önce ya da sonra blok oluşturursa meydana gelebilir.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -2147,7 +2147,7 @@ Adres: %4
     <message>
         <location filename="../walletmodel.cpp" line="+193"/>
         <source>Send Coins</source>
-        <translation>coinyecoin yolla</translation>
+        <translation>CoinyeCoin yolla</translation>
     </message>
 </context>
 <context>
@@ -2197,8 +2197,8 @@ Adres: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>coinyecoin version</source>
-        <translation>coinyecoin sürümü</translation>
+        <source>CoinyeCoin version</source>
+        <translation>CoinyeCoin sürümü</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2207,8 +2207,8 @@ Adres: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or coinyecoind</source>
-        <translation>-server ya da coinyecoind&apos;ye komut gönder</translation>
+        <source>Send command to -server or CoinyeCoind</source>
+        <translation>-server ya da CoinyeCoind&apos;ye komut gönder</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2227,13 +2227,13 @@ Adres: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: coinyecoin.conf)</source>
-        <translation>Yapılandırma dosyası belirt (varsayılan: coinyecoin.conf)</translation>
+        <source>Specify configuration file (default: CoinyeCoin.conf)</source>
+        <translation>Yapılandırma dosyası belirt (varsayılan: CoinyeCoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: coinyecoind.pid)</source>
-        <translation>Pid dosyası belirt (varsayılan: coinyecoind.pid)</translation>
+        <source>Specify pid file (default: CoinyeCoind.pid)</source>
+        <translation>Pid dosyası belirt (varsayılan: CoinyeCoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2310,24 +2310,24 @@ Adres: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=coinyecoinrpc
+rpcuser=CoinyeCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;CoinyeCoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, şu yapılandırma dosyasında rpc parolası belirtmeniz gerekir:
 %s
 Aşağıdaki rastgele oluşturulan parolayı kullanmanız tavsiye edilir:
-rpcuser=coinyecoinrpc
+rpcuser=CoinyeCoinrpc
 rpcpassword=%s
 (bu parolayı hatırlamanız gerekli değildir)
 Kullanıcı ismi ile parolanın FARKLI olmaları gerekir.
 Dosya mevcut değilse, sadece sahibi için okumayla sınırlı izin ile oluşturunuz.
 Sorunlar hakkında bildiri almak için alertnotify unsurunu ayarlamanız tavsiye edilir;
-mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.com
+mesela: alertnotify=echo %%s | mail -s &quot;CoinyeCoin Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -2342,8 +2342,8 @@ mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. coinyecoin is probably already running.</source>
-        <translation>%s veri dizininde kilit elde edilemedi. coinyecoin muhtemelen hâlihazırda çalışmaktadır.</translation>
+        <source>Cannot obtain a lock on data directory %s. CoinyeCoin is probably already running.</source>
+        <translation>%s veri dizininde kilit elde edilemedi. CoinyeCoin muhtemelen hâlihazırda çalışmaktadır.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2373,7 +2373,7 @@ mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.co
     <message>
         <location line="+6"/>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Bu yayın öncesi bir deneme sürümüdür - tüm riski siz üstlenmiş olursunuz - coinyecoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
+        <translation>Bu yayın öncesi bir deneme sürümüdür - tüm riski siz üstlenmiş olursunuz - CoinyeCoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2387,8 +2387,8 @@ mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong coinyecoin will not work properly.</source>
-        <translation>Uyarı: Lütfen bilgisayarınızın tarih ve saatinin doğru olup olmadığını kontrol ediniz! Saatiniz doğru değilse coinyecoin gerektiği gibi çalışamaz.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong CoinyeCoin will not work properly.</source>
+        <translation>Uyarı: Lütfen bilgisayarınızın tarih ve saatinin doğru olup olmadığını kontrol ediniz! Saatiniz doğru değilse CoinyeCoin gerektiği gibi çalışamaz.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2528,7 +2528,7 @@ mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.co
     <message>
         <location line="+1"/>
         <source>Generate coins (default: 0)</source>
-        <translation>coinyecoin oluştur (varsayılan: 0)</translation>
+        <translation>CoinyeCoin oluştur (varsayılan: 0)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2637,8 +2637,8 @@ mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the coinyecoin Wiki for SSL setup instructions)</source>
-        <translation> SSL seçenekleri: (SSL kurulum bilgisi için coinyecoin vikisine bakınız)</translation>
+        <source>SSL options: (see the CoinyeCoin Wiki for SSL setup instructions)</source>
+        <translation> SSL seçenekleri: (SSL kurulum bilgisi için CoinyeCoin vikisine bakınız)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2827,13 +2827,13 @@ mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of coinyecoin</source>
-        <translation>wallet.dat dosyasının yüklenmesinde hata oluştu: cüzdanın daha yeni bir coinyecoin sürümüne ihtiyacı var</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of CoinyeCoin</source>
+        <translation>wallet.dat dosyasının yüklenmesinde hata oluştu: cüzdanın daha yeni bir CoinyeCoin sürümüne ihtiyacı var</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart coinyecoin to complete</source>
-        <translation>Cüzdanın tekrar yazılması gerekiyordu: işlemi tamamlamak için coinyecoin&apos;i yeniden başlatınız</translation>
+        <source>Wallet needed to be rewritten: restart CoinyeCoin to complete</source>
+        <translation>Cüzdanın tekrar yazılması gerekiyordu: işlemi tamamlamak için CoinyeCoin&apos;i yeniden başlatınız</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2892,8 +2892,8 @@ mesela: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. coinyecoin is probably already running.</source>
-        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. coinyecoin muhtemelen hâlihazırda çalışmaktadır.</translation>
+        <source>Unable to bind to %s on this computer. CoinyeCoin is probably already running.</source>
+        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. CoinyeCoin muhtemelen hâlihazırda çalışmaktadır.</translation>
     </message>
     <message>
         <location line="+64"/>

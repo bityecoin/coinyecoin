@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About coinyecoin</source>
-        <translation>Sobre coinyecoin</translation>
+        <source>About CoinyeCoin</source>
+        <translation>Sobre CoinyeCoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;coinyecoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;coinyecoin&lt;/b&gt; versió</translation>
+        <source>&lt;b&gt;CoinyeCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;CoinyeCoin&lt;/b&gt; versió</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -39,7 +39,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
-        <source>2013-%1 The coinyecoin developers</source>
+        <source>2013-%1 The CoinyeCoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -72,8 +72,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your coinyecoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Aquestes són les teves adreces coinyecoin per a rebre pagaments. Pot interesar-te proveïr diferents adreces a cadascun dels enviadors així pots identificar qui et va pagant.</translation>
+        <source>These are your CoinyeCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Aquestes són les teves adreces CoinyeCoin per a rebre pagaments. Pot interesar-te proveïr diferents adreces a cadascun dels enviadors així pots identificar qui et va pagant.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -87,8 +87,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a coinyecoin address</source>
-        <translation>Signa el missatge per provar que ets propietari de l&apos;adreça coinyecoin</translation>
+        <source>Sign a message to prove you own a CoinyeCoin address</source>
+        <translation>Signa el missatge per provar que ets propietari de l&apos;adreça CoinyeCoin</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -112,8 +112,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified coinyecoin address</source>
-        <translation>Verificar un missatge per asegurar-se que ha estat signat amb una adreça coinyecoin específica</translation>
+        <source>Verify a message to ensure it was signed with a specified CoinyeCoin address</source>
+        <translation>Verificar un missatge per asegurar-se que ha estat signat amb una adreça CoinyeCoin específica</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -127,8 +127,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your coinyecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Aquestes són la seva adreça de coinyecoin per enviar els pagaments. Sempre revisi la quantitat i l&apos;adreça del destinatari abans transferència de monedes.</translation>
+        <source>These are your CoinyeCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Aquestes són la seva adreça de CoinyeCoin per enviar els pagaments. Sempre revisi la quantitat i l&apos;adreça del destinatari abans transferència de monedes.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -280,8 +280,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>coinyecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coinyecoins from being stolen by malware infecting your computer.</source>
-        <translation>coinyecoin es tancarà ara per acabar el procés d&apos;encriptació. Recorda que encriptar el teu moneder no protegeix completament els teus coinyecoins de ser robades per programari maliciós instal·lat al teu ordinador.</translation>
+        <source>CoinyeCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your CoinyeCoins from being stolen by malware infecting your computer.</source>
+        <translation>CoinyeCoin es tancarà ara per acabar el procés d&apos;encriptació. Recorda que encriptar el teu moneder no protegeix completament els teus CoinyeCoins de ser robades per programari maliciós instal·lat al teu ordinador.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -379,8 +379,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about coinyecoin</source>
-        <translation>Mostra informació sobre coinyecoin</translation>
+        <source>Show information about CoinyeCoin</source>
+        <translation>Mostra informació sobre CoinyeCoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -424,13 +424,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a coinyecoin address</source>
-        <translation>Enviar monedes a una adreça coinyecoin</translation>
+        <source>Send coins to a CoinyeCoin address</source>
+        <translation>Enviar monedes a una adreça CoinyeCoin</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for coinyecoin</source>
-        <translation>Modificar les opcions de configuració per coinyecoin</translation>
+        <source>Modify configuration options for CoinyeCoin</source>
+        <translation>Modificar les opcions de configuració per CoinyeCoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -460,8 +460,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>coinyecoin</source>
-        <translation>coinyecoin</translation>
+        <source>CoinyeCoin</source>
+        <translation>CoinyeCoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -485,8 +485,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About coinyecoin</source>
-        <translation>&amp;Sobre coinyecoin</translation>
+        <source>&amp;About CoinyeCoin</source>
+        <translation>&amp;Sobre CoinyeCoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -505,13 +505,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your coinyecoin addresses to prove you own them</source>
-        <translation>Signa el missatges amb la seva adreça de coinyecoin per provar que les poseeixes</translation>
+        <source>Sign messages with your CoinyeCoin addresses to prove you own them</source>
+        <translation>Signa el missatges amb la seva adreça de CoinyeCoin per provar que les poseeixes</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified coinyecoin addresses</source>
-        <translation>Verificar els missatges per assegurar-te que han estat signades amb una adreça coinyecoin específica.</translation>
+        <source>Verify messages to ensure they were signed with specified CoinyeCoin addresses</source>
+        <translation>Verificar els missatges per assegurar-te que han estat signades amb una adreça CoinyeCoin específica.</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -541,13 +541,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+47"/>
-        <source>coinyecoin client</source>
-        <translation>Client coinyecoin</translation>
+        <source>CoinyeCoin client</source>
+        <translation>Client CoinyeCoin</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to coinyecoin network</source>
-        <translation><numerusform>%n connexió activa a la xarxa coinyecoin</numerusform><numerusform>%n connexions actives a la xarxa coinyecoin</numerusform></translation>
+        <source>%n active connection(s) to CoinyeCoin network</source>
+        <translation><numerusform>%n connexió activa a la xarxa CoinyeCoin</numerusform><numerusform>%n connexions actives a la xarxa CoinyeCoin</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -657,8 +657,8 @@ Address: %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid coinyecoin address or malformed URI parameters.</source>
-        <translation>la URI no pot ser processada! Això es pot ser causat per una adreça coinyecoin invalida o paràmetres URI malformats.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid CoinyeCoin address or malformed URI parameters.</source>
+        <translation>la URI no pot ser processada! Això es pot ser causat per una adreça CoinyeCoin invalida o paràmetres URI malformats.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -672,8 +672,8 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. coinyecoin can no longer continue safely and will quit.</source>
-        <translation>Ha tingut lloc un error fatal. coinyecoin no pot continuar executant-se de manera segura i es tancará.</translation>
+        <source>A fatal error occurred. CoinyeCoin can no longer continue safely and will quit.</source>
+        <translation>Ha tingut lloc un error fatal. CoinyeCoin no pot continuar executant-se de manera segura i es tancará.</translation>
     </message>
 </context>
 <context>
@@ -738,8 +738,8 @@ Address: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid coinyecoin address.</source>
-        <translation>L&apos;adreça introduida &quot;%1&quot; no és una adreça coinyecoin valida.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid CoinyeCoin address.</source>
+        <translation>L&apos;adreça introduida &quot;%1&quot; no és una adreça CoinyeCoin valida.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -757,8 +757,8 @@ Address: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>coinyecoin-Qt</source>
-        <translation>coinyecoin-Qt</translation>
+        <source>CoinyeCoin-Qt</source>
+        <translation>CoinyeCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -820,13 +820,13 @@ Address: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start coinyecoin after logging in to the system.</source>
-        <translation>Iniciar automàticament coinyecoin després de l&apos;inici de sessió del sistema.</translation>
+        <source>Automatically start CoinyeCoin after logging in to the system.</source>
+        <translation>Iniciar automàticament CoinyeCoin després de l&apos;inici de sessió del sistema.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start coinyecoin on system login</source>
-        <translation>&amp;Iniciar coinyecoin al inici de sessió del sistema.</translation>
+        <source>&amp;Start CoinyeCoin on system login</source>
+        <translation>&amp;Iniciar CoinyeCoin al inici de sessió del sistema.</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -845,8 +845,8 @@ Address: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the coinyecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Obrir el port del client de coinyecoin al router de forma automàtica. Això només funciona quan el teu router implementa UPnP i l&apos;opció està activada.</translation>
+        <source>Automatically open the CoinyeCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Obrir el port del client de CoinyeCoin al router de forma automàtica. Això només funciona quan el teu router implementa UPnP i l&apos;opció està activada.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -855,8 +855,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the coinyecoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Connectar a la xarxa coinyecoin a través de un SOCKS proxy (per exemple connectant a través de Tor).</translation>
+        <source>Connect to the CoinyeCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Connectar a la xarxa CoinyeCoin a través de un SOCKS proxy (per exemple connectant a través de Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -930,8 +930,8 @@ Address: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting coinyecoin.</source>
-        <translation>Aquí pots definir el llenguatge de l&apos;aplicatiu. Aquesta configuració tindrà efecte un cop es reiniciï coinyecoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting CoinyeCoin.</source>
+        <translation>Aquí pots definir el llenguatge de l&apos;aplicatiu. Aquesta configuració tindrà efecte un cop es reiniciï CoinyeCoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -945,8 +945,8 @@ Address: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show coinyecoin addresses in the transaction list or not.</source>
-        <translation>Mostrar adreces coinyecoin als llistats de transaccions o no.</translation>
+        <source>Whether to show CoinyeCoin addresses in the transaction list or not.</source>
+        <translation>Mostrar adreces CoinyeCoin als llistats de transaccions o no.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -997,8 +997,8 @@ Address: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting coinyecoin.</source>
-        <translation>Aquesta configuració tindrà efecte un cop es reiniciï coinyecoin.</translation>
+        <source>This setting will take effect after restarting CoinyeCoin.</source>
+        <translation>Aquesta configuració tindrà efecte un cop es reiniciï CoinyeCoin.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1016,8 +1016,8 @@ Address: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the coinyecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>La informació mostrada pot no estar al día. El teu moneder es sincronitza automàticament amb la xarxa coinyecoin un cop s&apos;ha establert connexió, però aquest proces no s&apos;ha completat encara.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the CoinyeCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>La informació mostrada pot no estar al día. El teu moneder es sincronitza automàticament amb la xarxa CoinyeCoin un cop s&apos;ha establert connexió, però aquest proces no s&apos;ha completat encara.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1070,8 +1070,8 @@ Address: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start coinyecoin: click-to-pay handler</source>
-        <translation>No es pot iniciar coinyecoin: manejador clicla-per-pagar</translation>
+        <source>Cannot start CoinyeCoin: click-to-pay handler</source>
+        <translation>No es pot iniciar CoinyeCoin: manejador clicla-per-pagar</translation>
     </message>
 </context>
 <context>
@@ -1220,8 +1220,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the coinyecoin-Qt help message to get a list with possible coinyecoin command-line options.</source>
-        <translation>Mostrar el missatge d&apos;ajuda de coinyecoin-Qt per a obtenir un llistat de possibles ordres per a la línia d&apos;ordres de coinyecoin.</translation>
+        <source>Show the CoinyeCoin-Qt help message to get a list with possible CoinyeCoin command-line options.</source>
+        <translation>Mostrar el missatge d&apos;ajuda de CoinyeCoin-Qt per a obtenir un llistat de possibles ordres per a la línia d&apos;ordres de CoinyeCoin.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1240,13 +1240,13 @@ Address: %4
     </message>
     <message>
         <location line="-104"/>
-        <source>coinyecoin - Debug window</source>
-        <translation>coinyecoin -Finestra de debug</translation>
+        <source>CoinyeCoin - Debug window</source>
+        <translation>CoinyeCoin -Finestra de debug</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>coinyecoin Core</source>
-        <translation>Nucli de coinyecoin</translation>
+        <source>CoinyeCoin Core</source>
+        <translation>Nucli de CoinyeCoin</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1255,8 +1255,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the coinyecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Obrir el dietari de debug de coinyecoin del directori de dades actual. Aixó pot trigar uns quants segons per a dietàris grossos.</translation>
+        <source>Open the CoinyeCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Obrir el dietari de debug de CoinyeCoin del directori de dades actual. Aixó pot trigar uns quants segons per a dietàris grossos.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1265,8 +1265,8 @@ Address: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the coinyecoin RPC console.</source>
-        <translation>Benvingut a la consola RPC de coinyecoin</translation>
+        <source>Welcome to the CoinyeCoin RPC console.</source>
+        <translation>Benvingut a la consola RPC de CoinyeCoin</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1408,8 +1408,8 @@ Address: %4
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>La adreça a on envia el pagament (per exemple: DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address to send the payment to (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>La adreça a on envia el pagament (per exemple: 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -1449,8 +1449,8 @@ Address: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Introdueixi una adreça de coinyecoin (per exemple DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Introdueixi una adreça de CoinyeCoin (per exemple 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
 </context>
 <context>
@@ -1472,8 +1472,8 @@ Address: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>La adreça amb la que signat els missatges (per exemple DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address to sign the message with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>La adreça amb la que signat els missatges (per exemple 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1514,8 +1514,8 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this coinyecoin address</source>
-        <translation>Signa el missatge per provar que ets propietari d&apos;aquesta adreça coinyecoin</translation>
+        <source>Sign the message to prove you own this CoinyeCoin address</source>
+        <translation>Signa el missatge per provar que ets propietari d&apos;aquesta adreça CoinyeCoin</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1545,13 +1545,13 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>La adreça amb el que el missatge va ser signat (per exemple DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address the message was signed with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>La adreça amb el que el missatge va ser signat (per exemple 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified coinyecoin address</source>
-        <translation>Verificar el missatge per assegurar-se que ha estat signat amb una adreça coinyecoin específica</translation>
+        <source>Verify the message to ensure it was signed with the specified CoinyeCoin address</source>
+        <translation>Verificar el missatge per assegurar-se que ha estat signat amb una adreça CoinyeCoin específica</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1566,8 +1566,8 @@ Address: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>Introdueixi una adreça de coinyecoin (per exemple DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>Introdueixi una adreça de CoinyeCoin (per exemple 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1576,8 +1576,8 @@ Address: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter coinyecoin signature</source>
-        <translation>Introduïr una clau coinyecoin</translation>
+        <source>Enter CoinyeCoin signature</source>
+        <translation>Introduïr una clau CoinyeCoin</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1650,7 +1650,7 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The coinyecoin developers</source>
+        <source>The CoinyeCoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2188,8 +2188,8 @@ Address: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>coinyecoin version</source>
-        <translation>Versió de coinyecoin</translation>
+        <source>CoinyeCoin version</source>
+        <translation>Versió de CoinyeCoin</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2198,8 +2198,8 @@ Address: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or coinyecoind</source>
-        <translation>Enviar comanda a -servidor o coinyecoind</translation>
+        <source>Send command to -server or CoinyeCoind</source>
+        <translation>Enviar comanda a -servidor o CoinyeCoind</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2218,13 +2218,13 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: coinyecoin.conf)</source>
-        <translation>Especificat arxiu de configuració (per defecte: coinyecoin.conf)</translation>
+        <source>Specify configuration file (default: CoinyeCoin.conf)</source>
+        <translation>Especificat arxiu de configuració (per defecte: CoinyeCoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: coinyecoind.pid)</source>
-        <translation>Especificar arxiu pid (per defecte: coinyecoind.pid)</translation>
+        <source>Specify pid file (default: CoinyeCoind.pid)</source>
+        <translation>Especificar arxiu pid (per defecte: CoinyeCoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2301,15 +2301,15 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=coinyecoinrpc
+rpcuser=CoinyeCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;CoinyeCoin Alert&quot; admin@foo.com
 </source>
-        <translation>%s has de establir una contrasenya RPC a l&apos;arxiu de configuració:\n%s\nEs recomana que useu la següent constrasenya aleatòria:\nrpcuser=coinyecoinrpc\nrpcpassword=%s\n(no necesiteu recordar aquesta contrsenya)\nEl nom d&apos;usuari i contrasenya NO HAN de ser els mateixos.\nSi l&apos;arxiu no existeix, crea&apos;l amb els permisos d&apos;arxiu de només lectura per al propietari.\nTambé es recomana establir la notificació d&apos;alertes i així seràs notificat de les incidències;\nper exemple: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.com</translation>
+        <translation>%s has de establir una contrasenya RPC a l&apos;arxiu de configuració:\n%s\nEs recomana que useu la següent constrasenya aleatòria:\nrpcuser=CoinyeCoinrpc\nrpcpassword=%s\n(no necesiteu recordar aquesta contrsenya)\nEl nom d&apos;usuari i contrasenya NO HAN de ser els mateixos.\nSi l&apos;arxiu no existeix, crea&apos;l amb els permisos d&apos;arxiu de només lectura per al propietari.\nTambé es recomana establir la notificació d&apos;alertes i així seràs notificat de les incidències;\nper exemple: alertnotify=echo %%s | mail -s &quot;CoinyeCoin Alert&quot; admin@foo.com</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2323,8 +2323,8 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. coinyecoin is probably already running.</source>
-        <translation>No es pot bloquejar el directori de dades %s. Probablement coinyecoin ja estigui en execució.</translation>
+        <source>Cannot obtain a lock on data directory %s. CoinyeCoin is probably already running.</source>
+        <translation>No es pot bloquejar el directori de dades %s. Probablement CoinyeCoin ja estigui en execució.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2368,8 +2368,8 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong coinyecoin will not work properly.</source>
-        <translation>Advertència: Si us plau comprovi que la data i hora del seu computador siguin correctes! Si el seu rellotge està mal configurat, coinyecoin no funcionará de manera apropiada.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong CoinyeCoin will not work properly.</source>
+        <translation>Advertència: Si us plau comprovi que la data i hora del seu computador siguin correctes! Si el seu rellotge està mal configurat, CoinyeCoin no funcionará de manera apropiada.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2618,8 +2618,8 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the coinyecoin Wiki for SSL setup instructions)</source>
-        <translation>Opcions SSL: (veure la Wiki de coinyecoin per a instruccions de configuració SSL)</translation>
+        <source>SSL options: (see the CoinyeCoin Wiki for SSL setup instructions)</source>
+        <translation>Opcions SSL: (veure la Wiki de CoinyeCoin per a instruccions de configuració SSL)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2808,13 +2808,13 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of coinyecoin</source>
-        <translation>Error carregant wallet.dat: El moneder requereix una versió de coinyecoin més moderna</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of CoinyeCoin</source>
+        <translation>Error carregant wallet.dat: El moneder requereix una versió de CoinyeCoin més moderna</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart coinyecoin to complete</source>
-        <translation>El moneder necesita ser re-escrit: re-inicia coinyecoin per a completar la tasca</translation>
+        <source>Wallet needed to be rewritten: restart CoinyeCoin to complete</source>
+        <translation>El moneder necesita ser re-escrit: re-inicia CoinyeCoin per a completar la tasca</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2873,8 +2873,8 @@ for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@f
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. coinyecoin is probably already running.</source>
-        <translation>Impossible d&apos;unir %s en aquest ordinador. Probablement coinyecoin ja estigui en execució.</translation>
+        <source>Unable to bind to %s on this computer. CoinyeCoin is probably already running.</source>
+        <translation>Impossible d&apos;unir %s en aquest ordinador. Probablement CoinyeCoin ja estigui en execució.</translation>
     </message>
     <message>
         <location line="+64"/>

@@ -61,7 +61,7 @@ QString dateTimeStr(qint64 nTime)
 QFont bitcoinAddressFont()
 {
     QFont font("Cursive");
-    font.setFamily("Comic Sans MS");
+    font.setFamily("Verdana");
     return font;
 }
 
@@ -105,7 +105,7 @@ QList<QPair<QString, QString> > queryItems(const QString& queryData) {
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no bitcoin URI
-    if(!uri.isValid() || uri.scheme() != QString("coinyecoin"))
+    if(!uri.isValid() || uri.scheme() != QString("CoinyeCoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -167,9 +167,9 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("coinyecoin://"))
+    if(uri.startsWith("CoinyeCoin://"))
     {
-        uri.replace(0, 11, "coinyecoin:");
+        uri.replace(0, 11, "CoinyeCoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -336,7 +336,7 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "coinyecoin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "CoinyeCoin.lnk";
 }
 
 bool GetStartOnSystemStartup()
@@ -418,7 +418,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "coinyecoin.desktop";
+    return GetAutostartDir() / "CoinyeCoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -459,7 +459,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=coinyecoin\n";
+        optionFile << "Name=CoinyeCoin\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -530,10 +530,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("coinyecoin-Qt") + " " + tr("version") + " " +
+    header = tr("CoinyeCoin-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  coinyecoin-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  CoinyeCoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
@@ -542,7 +542,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("coinyecoin-Qt"));
+    setWindowTitle(tr("CoinyeCoin-Qt"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));

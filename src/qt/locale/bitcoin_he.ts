@@ -4,12 +4,12 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About coinyecoin</source>
+        <source>About CoinyeCoin</source>
         <translation>אודות לייטקוין</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;coinyecoin&lt;/b&gt; version</source>
+        <source>&lt;b&gt;CoinyeCoin&lt;/b&gt; version</source>
         <translation>גרסת &lt;b&gt;לייטקוין&lt;/b&gt;</translation>
     </message>
     <message>
@@ -44,7 +44,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
-        <source>2013-%1 The coinyecoin developers</source>
+        <source>2013-%1 The CoinyeCoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -77,7 +77,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your coinyecoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <source>These are your CoinyeCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
         <translation>אלה כתובת הלייטקוין שלך עבור קבלת תשלומים. ייתכן ותרצה לתת כתובת שונה לכל שולח כדי שתוכל לעקוב אחר מי משלם לך.</translation>
     </message>
     <message>
@@ -92,7 +92,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a coinyecoin address</source>
+        <source>Sign a message to prove you own a CoinyeCoin address</source>
         <translation>חתום על הודעה בכדי להוכיח כי אתה הבעלים של כתובת לייטקוין.</translation>
     </message>
     <message>
@@ -117,7 +117,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified coinyecoin address</source>
+        <source>Verify a message to ensure it was signed with a specified CoinyeCoin address</source>
         <translation>אמת הודעה בכדי להבטיח שהיא נחתמה עם כתובת לייטקוין מסוימת.</translation>
     </message>
     <message>
@@ -132,7 +132,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your coinyecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your CoinyeCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>אלה כתובת הלייטקוין שלך עבור שליחת תשלומים. תמיד בדוק את מספר ואת כתובות מקבלי התשלומים לפני שליחת מטבעות.</translation>
     </message>
     <message>
@@ -285,7 +285,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>coinyecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coinyecoins from being stolen by malware infecting your computer.</source>
+        <source>CoinyeCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your CoinyeCoins from being stolen by malware infecting your computer.</source>
         <translation>לייטקוין ייסגר עכשיו כדי להשלים את תהליך ההצפנה. זכור שהצפנת הארנק שלך אינו יכול להגן באופן מלא על הלייטקוינים שלך מתוכנות זדוניות המושתלות על המחשב.</translation>
     </message>
     <message>
@@ -384,7 +384,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about coinyecoin</source>
+        <source>Show information about CoinyeCoin</source>
         <translation>הצג מידע על לייטקוין</translation>
     </message>
     <message>
@@ -429,12 +429,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a coinyecoin address</source>
+        <source>Send coins to a CoinyeCoin address</source>
         <translation>שלח מטבעות לכתובת לייטקוין</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for coinyecoin</source>
+        <source>Modify configuration options for CoinyeCoin</source>
         <translation>שנה אפשרויות תצורה עבור לייטקוין</translation>
     </message>
     <message>
@@ -465,7 +465,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>coinyecoin</source>
+        <source>CoinyeCoin</source>
         <translation>לייטקוין</translation>
     </message>
     <message>
@@ -490,7 +490,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About coinyecoin</source>
+        <source>&amp;About CoinyeCoin</source>
         <translation>אודות לייטקוין</translation>
     </message>
     <message>
@@ -510,12 +510,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your coinyecoin addresses to prove you own them</source>
+        <source>Sign messages with your CoinyeCoin addresses to prove you own them</source>
         <translation>חתום על הודעות עם כתובות הלייטקוין שלך כדי להוכיח שהן בבעלותך</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified coinyecoin addresses</source>
+        <source>Verify messages to ensure they were signed with specified CoinyeCoin addresses</source>
         <translation>אמת הודעות כדי להבטיח שהן נחתמו עם כתובת לייטקוין מסוימות</translation>
     </message>
     <message>
@@ -546,12 +546,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+47"/>
-        <source>coinyecoin client</source>
+        <source>CoinyeCoin client</source>
         <translation>תוכנת לייטקוין</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to coinyecoin network</source>
+        <source>%n active connection(s) to CoinyeCoin network</source>
         <translation><numerusform>חיבור פעיל אחד לרשת הלייטקוין</numerusform><numerusform>%n חיבורים פעילים לרשת הלייטקוין</numerusform></translation>
     </message>
     <message>
@@ -665,7 +665,7 @@ Address: %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid coinyecoin address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid CoinyeCoin address or malformed URI parameters.</source>
         <translation>לא ניתן לנתח URI! זה יכול להיגרם כתוצאה מכתובת לייטקוין לא תקינה או פרמטרי URI חסרי צורה תקינה.</translation>
     </message>
     <message>
@@ -680,7 +680,7 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. coinyecoin can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. CoinyeCoin can no longer continue safely and will quit.</source>
         <translation>שגיאה סופנית אירעה. לייטקוין אינו יכול להמשיך לפעול בבטחה ולכן ייסגר.</translation>
     </message>
 </context>
@@ -746,7 +746,7 @@ Address: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid coinyecoin address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid CoinyeCoin address.</source>
         <translation>הכתובת שהוכנסה &quot;%1&quot; אינה כתובת לייטקוין תקינה.</translation>
     </message>
     <message>
@@ -765,8 +765,8 @@ Address: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>coinyecoin-Qt</source>
-        <translation>coinyecoin-Qt</translation>
+        <source>CoinyeCoin-Qt</source>
+        <translation>CoinyeCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -828,12 +828,12 @@ Address: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start coinyecoin after logging in to the system.</source>
+        <source>Automatically start CoinyeCoin after logging in to the system.</source>
         <translation>הפעל את לייטקוין באופן עצמאי לאחר התחברות למערכת.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start coinyecoin on system login</source>
+        <source>&amp;Start CoinyeCoin on system login</source>
         <translation>התחל את לייטקוין בעת התחברות למערכת</translation>
     </message>
     <message>
@@ -853,7 +853,7 @@ Address: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the coinyecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the CoinyeCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>פתח את פורט לייטקוין בנתב באופן אוטומטי. עובד רק אם UPnP מאופשר ונתמך ע&quot;י הנתב.</translation>
     </message>
     <message>
@@ -863,7 +863,7 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the coinyecoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <source>Connect to the CoinyeCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>התחבר לרשת הלייטקוין דרך פרוקסי SOCKS (למשל בעת התחברות דרך Tor).</translation>
     </message>
     <message>
@@ -938,7 +938,7 @@ Address: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting coinyecoin.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting CoinyeCoin.</source>
         <translation>ניתן לקבוע כאן את שפת ממשק המשתמש. הגדרה זו תחול לאחר הפעלה מחדש של לייטקוין.</translation>
     </message>
     <message>
@@ -953,7 +953,7 @@ Address: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show coinyecoin addresses in the transaction list or not.</source>
+        <source>Whether to show CoinyeCoin addresses in the transaction list or not.</source>
         <translation>האם להציג כתובות לייטקוין ברשימת הפעולות או לא.</translation>
     </message>
     <message>
@@ -1005,7 +1005,7 @@ Address: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting coinyecoin.</source>
+        <source>This setting will take effect after restarting CoinyeCoin.</source>
         <translation>הגדרה זו תחול לאחר הפעלה מחדש של לייטקוין.</translation>
     </message>
     <message>
@@ -1024,7 +1024,7 @@ Address: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the coinyecoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the CoinyeCoin network after a connection is established, but this process has not completed yet.</source>
         <translation>המידע המוצג עשוי להיות מיושן. הארנק שלך מסתנכרן באופן אוטומטי עם רשת הלייטקוין לאחר כינון חיבור, אך התהליך טרם הסתיים.</translation>
     </message>
     <message>
@@ -1078,7 +1078,7 @@ Address: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start coinyecoin: click-to-pay handler</source>
+        <source>Cannot start CoinyeCoin: click-to-pay handler</source>
         <translation>לא ניתן להתחיל את לייטקוין: מפעיל לחץ-לתשלום </translation>
     </message>
 </context>
@@ -1228,8 +1228,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the coinyecoin-Qt help message to get a list with possible coinyecoin command-line options.</source>
-        <translation>הצג את הודעה העזרה של coinyecoin-qt כדי לקבל רשימה של אפשרויות שורת פקודה של לייטקוין.</translation>
+        <source>Show the CoinyeCoin-Qt help message to get a list with possible CoinyeCoin command-line options.</source>
+        <translation>הצג את הודעה העזרה של CoinyeCoin-qt כדי לקבל רשימה של אפשרויות שורת פקודה של לייטקוין.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1248,12 +1248,12 @@ Address: %4
     </message>
     <message>
         <location line="-104"/>
-        <source>coinyecoin - Debug window</source>
+        <source>CoinyeCoin - Debug window</source>
         <translation>לייטקוין - חלון ניפוי</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>coinyecoin Core</source>
+        <source>CoinyeCoin Core</source>
         <translation>ליבת לייטקוין</translation>
     </message>
     <message>
@@ -1263,7 +1263,7 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the coinyecoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the CoinyeCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>פתח את קובץ יומן הניפוי מתיקיית הנתונים הנוכחית. זה עשוי לקחת מספר שניות עבור קובצי יומן גדולים.</translation>
     </message>
     <message>
@@ -1273,7 +1273,7 @@ Address: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the coinyecoin RPC console.</source>
+        <source>Welcome to the CoinyeCoin RPC console.</source>
         <translation>ברוכים הבאים ללוח בקרת RPC של לייטקוין</translation>
     </message>
     <message>
@@ -1416,8 +1416,8 @@ Address: %4
     </message>
     <message>
         <location line="+34"/>
-        <source>The address to send the payment to (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>הכתובת שאליה ישלח התשלום (למשל DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address to send the payment to (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>הכתובת שאליה ישלח התשלום (למשל 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -1457,8 +1457,8 @@ Address: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>הכנס כתובת לייטקוין (למשל DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>הכנס כתובת לייטקוין (למשל 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
 </context>
 <context>
@@ -1480,8 +1480,8 @@ Address: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>הכתובת איתה לחתום על ההודעה (למשל DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address to sign the message with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>הכתובת איתה לחתום על ההודעה (למשל 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1522,7 +1522,7 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this coinyecoin address</source>
+        <source>Sign the message to prove you own this CoinyeCoin address</source>
         <translation>חתום על ההודעה כדי להוכיח שכתובת הלייטקוין הזו בבעלותך.</translation>
     </message>
     <message>
@@ -1553,12 +1553,12 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>הכתובת איתה ההודעה נחתמה (למשל DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>The address the message was signed with (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>הכתובת איתה ההודעה נחתמה (למשל 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified coinyecoin address</source>
+        <source>Verify the message to ensure it was signed with the specified CoinyeCoin address</source>
         <translation>אמת את ההודעה כדי להבטיח שהיא נחתמה עם כתובת הלייטקוין הנתונה</translation>
     </message>
     <message>
@@ -1574,8 +1574,8 @@ Address: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a coinyecoin address (e.g. DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</source>
-        <translation>הכנס כתובת לייטקוין (למשל DJ7zB7c5BsB9UJLy1rKQtY7c6CQfGiaRLM)</translation>
+        <source>Enter a CoinyeCoin address (e.g. 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</source>
+        <translation>הכנס כתובת לייטקוין (למשל 5nSqxvWwTrPNZM1LS8tsHn4YXAuJFgrxuu)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1584,7 +1584,7 @@ Address: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter coinyecoin signature</source>
+        <source>Enter CoinyeCoin signature</source>
         <translation>הכנס חתימת לייטקוין</translation>
     </message>
     <message>
@@ -1658,7 +1658,7 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The coinyecoin developers</source>
+        <source>The CoinyeCoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2196,7 +2196,7 @@ Address: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>coinyecoin version</source>
+        <source>CoinyeCoin version</source>
         <translation>גרסת לייטקוין</translation>
     </message>
     <message>
@@ -2206,8 +2206,8 @@ Address: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or coinyecoind</source>
-        <translation>שלח פקודה ל -server או coinyecoind</translation>
+        <source>Send command to -server or CoinyeCoind</source>
+        <translation>שלח פקודה ל -server או CoinyeCoind</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2226,13 +2226,13 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: coinyecoin.conf)</source>
-        <translation>ציין קובץ הגדרות (ברירת מחדל: coinyecoin.conf)</translation>
+        <source>Specify configuration file (default: CoinyeCoin.conf)</source>
+        <translation>ציין קובץ הגדרות (ברירת מחדל: CoinyeCoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: coinyecoind.pid)</source>
-        <translation>ציין קובץ pid (ברירת מחדל: coinyecoind.pid)</translation>
+        <source>Specify pid file (default: CoinyeCoind.pid)</source>
+        <translation>ציין קובץ pid (ברירת מחדל: CoinyeCoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2309,24 +2309,24 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=coinyecoinrpc
+rpcuser=CoinyeCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;CoinyeCoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, עליך לקבוע סיסמת RPC בקובץ הקונפיגורציה:
  %s
 מומלץ להשתמש בסיסמא האקראית הבאה:
-rpcuser=coinyecoinrpc
+rpcuser=CoinyeCoinrpc
 rpcpassword=%s
 (אין צורך לזכור את הסיסמה)
 אסור ששם המשתמש והסיסמא יהיו זהים.
 אם הקובץ אינו קיים, צור אותו עם הרשאות קריאה לבעלים בלבד.
 זה מומלץ לסמן alertnotify כדי לקבל דיווח על תקלות;
-למשל: alertnotify=echo %%s | mail -s &quot;coinyecoin Alert&quot; admin@foo.com 
+למשל: alertnotify=echo %%s | mail -s &quot;CoinyeCoin Alert&quot; admin@foo.com 
 </translation>
     </message>
     <message>
@@ -2341,7 +2341,7 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. coinyecoin is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. CoinyeCoin is probably already running.</source>
         <translation>לא מסוגל להשיג נעילה על תיקיית הנתונים %s. כנראה שלייטקוין כבר רץ.</translation>
     </message>
     <message>
@@ -2386,7 +2386,7 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong coinyecoin will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong CoinyeCoin will not work properly.</source>
         <translation>אזהרה: אנא בדוק שהתאריך והשעה של המחשב שלך נכונים! אם השעון שלך אינו נכון לייטקוין לא יעבוד כראוי.</translation>
     </message>
     <message>
@@ -2636,7 +2636,7 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the coinyecoin Wiki for SSL setup instructions)</source>
+        <source>SSL options: (see the CoinyeCoin Wiki for SSL setup instructions)</source>
         <translation>אפשרויות SSL: (ראה את הויקי של לייטקוין עבור הוראות הגדרת SSL)</translation>
     </message>
     <message>
@@ -2826,12 +2826,12 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of coinyecoin</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of CoinyeCoin</source>
         <translation>שגיאה בטעינת הקובץ wallet.dat: הארנק דורש גרסה חדשה יותר של לייטקוין</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart coinyecoin to complete</source>
+        <source>Wallet needed to be rewritten: restart CoinyeCoin to complete</source>
         <translation>יש לכתוב מחדש את הארנק: אתחל את לייטקוין לסיום</translation>
     </message>
     <message>
@@ -2891,7 +2891,7 @@ rpcpassword=%s
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. coinyecoin is probably already running.</source>
+        <source>Unable to bind to %s on this computer. CoinyeCoin is probably already running.</source>
         <translation>לא ניתן לקשור ל-%s במחשב זה. לייטקוין כנראה עדיין רץ.</translation>
     </message>
     <message>
