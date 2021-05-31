@@ -2,8 +2,6 @@
  * W.J. van der Laan 2011-2012
  */
 
-#include <QApplication>
-
 #include "bitcoingui.h"
 #include "clientmodel.h"
 #include "walletmodel.h"
@@ -16,6 +14,7 @@
 #include "paymentserver.h"
 #include "splashscreen.h"
 
+#include <QApplication>
 #include <QMessageBox>
 #if QT_VERSION < 0x050000
 #include <QTextCodec>

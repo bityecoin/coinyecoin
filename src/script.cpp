@@ -1179,7 +1179,7 @@ bool Solver(const CScript& scriptPubKey, txnouttype& typeRet, vector<vector<unsi
         CScript::const_iterator end1 = script1.end();
         CScript::const_iterator end2 = testScript->end();
 
-        loop
+        while (true)
         {
             if (pc1 == end1 && pc2 == end2)
             {

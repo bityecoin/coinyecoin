@@ -1092,14 +1092,14 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
-int static generateMTRandom(unsigned int s, int range)
+/* int static generateMTRandom(unsigned int s, int range)
 {
     boost::mt19937 gen(s);
     boost::uniform_int<> dist(1, range);
     return dist(gen);
-}
+} */
 
-//static const int64 nDiffChangeTarget = 145000; // Patch effective @ block 145000
+static const int64 nDiffChangeTarget = 145000; // Patch effective @ block 145000
 
 
 // Coinye moving to a flat reward block 5/31/2021 (2500/block)
@@ -2922,7 +2922,7 @@ if (false && block.GetHash() != hashGenesisBlock)
             uint256 thash;
             char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
 
-            loop
+            while (true)
             {
                 scrypt_1024_1_1_256_sp(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
                 if (thash <= hashTarget)
@@ -4717,7 +4717,7 @@ void static DogecoinMiner(CWallet *pwallet)
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
 
-    try { loop {
+    try { while (true) {
         while (vNodes.empty())
             MilliSleep(1000);
 
@@ -4755,13 +4755,13 @@ void static DogecoinMiner(CWallet *pwallet)
         //
         int64 nStart = GetTime();
         uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
-        loop
+        while (true)
         {
             unsigned int nHashesDone = 0;
 
             uint256 thash;
             char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
-            loop
+            while (true)
             {
 
                 scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
