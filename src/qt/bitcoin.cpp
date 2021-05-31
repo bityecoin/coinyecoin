@@ -23,6 +23,10 @@
 #include <QTimer>
 #include <QTranslator>
 #include <QLibraryInfo>
+#include <QMovie>
+#include <QDateTime>
+#include <QFileDialog>
+
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
