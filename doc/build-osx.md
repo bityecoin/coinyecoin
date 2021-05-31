@@ -27,7 +27,7 @@ Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.
 Notes
 -----
 
-See `doc/readme-qt.rst` for instructions on building Dogecoin-Qt, the
+See `doc/readme-qt.rst` for instructions on building Coinyecoin-Qt, the
 graphical user interface.
 
 Tested on OS X 10.6 through 10.9 on Intel processors only. PPC is not
@@ -36,7 +36,7 @@ supported because it is big-endian.
 All of the commands should be executed in a Terminal application. The
 built-in one is located in `/Applications/Utilities`.
 
-Much of this may be outdated for Dogecoin.
+Much of this may be outdated for Coinyecoin.
 
 Preparation
 -----------

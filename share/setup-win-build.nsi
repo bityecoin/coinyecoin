@@ -1,4 +1,4 @@
-Name Dogecoin
+Name Coinyecoin
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -6,7 +6,7 @@ SetCompressor /SOLID lzma
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION "1.6.0.0"
-!define COMPANY "Dogecoin"
+!define COMPANY "Coinyecoin"
 !define URL http://coinyecoin.com
 
 # MUI Symbol Definitions
@@ -19,7 +19,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER Dogecoin
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER Coinyecoin
 !define MUI_FINISHPAGE_RUN $INSTDIR\coinyecoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "pixmaps\nsis-wizard.bmp"
@@ -46,13 +46,13 @@ Var StartMenuGroup
 
 # Installer attributes
 OutFile coinyecoin-${VERSION}-win32-setup.exe
-InstallDir $PROGRAMFILES\Dogecoin
+InstallDir $PROGRAMFILES\Coinyecoin
 CRCCheck on
 XPStyle on
 BrandingText "Such currency"
 ShowInstDetails show
 VIProductVersion  "${VERSION}"
-VIAddVersionKey ProductName Dogecoin
+VIAddVersionKey ProductName Coinyecoin
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -84,8 +84,8 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Dogecoin.lnk" $INSTDIR\coinyecoin-qt.exe
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Dogecoin.lnk" $INSTDIR\uninstall.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Coinyecoin.lnk" $INSTDIR\coinyecoin-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Coinyecoin.lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
@@ -96,7 +96,7 @@ Section -post SEC0001
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
     WriteRegStr HKCR "coinyecoin" "URL Protocol" ""
-    WriteRegStr HKCR "coinyecoin" "" "URL:Dogecoin"
+    WriteRegStr HKCR "coinyecoin" "" "URL:Coinyecoin"
     WriteRegStr HKCR "coinyecoin\DefaultIcon" "" $INSTDIR\coinyecoin-qt.exe
     WriteRegStr HKCR "coinyecoin\shell\open\command" "" '"$INSTDIR\coinyecoin-qt.exe" "%1"'
 SectionEnd
@@ -129,9 +129,9 @@ SectionEnd
 
 Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Dogecoin.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Dogecoin.lnk"
-    Delete /REBOOTOK "$SMSTARTUP\Dogecoin.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Coinyecoin.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Coinyecoin.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\Coinyecoin.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log

@@ -27,7 +27,7 @@ Package: coinyecoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Dogecoin is a free open source peer-to-peer electronic cash system that
+ Coinyecoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
@@ -43,7 +43,7 @@ Package: coinyecoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Dogecoin is a free open source peer-to-peer electronic cash system that
+ Coinyecoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
@@ -52,4 +52,4 @@ Description: peer-to-peer network based digital currency - Qt GUI
  Full transaction history is stored locally at each client.  This
  requires 2+ GB of space, slowly growing.
  .
- This package provides Dogecoin-Qt, a GUI for Dogecoin based on Qt.
+ This package provides Coinyecoin-Qt, a GUI for Coinyecoin based on Qt.
