@@ -951,11 +951,8 @@ int CMerkleTx::GetBlocksToMaturity() const
 {
     if (!IsCoinBase())
         return 0;
-        
-    if(GetHeightInMainChain() >= COINBASE_MATURITY_SWITCH)
-        return max(0, (COINBASE_MATURITY_NEW+20) - GetDepthInMainChain());
-    else
-        return max(0, (COINBASE_MATURITY+20) - GetDepthInMainChain());
+
+    return max(0, (COINBASE_MATURITY_NEW+20) - GetDepthInMainChain());
 }
 
 
@@ -1106,9 +1103,11 @@ static const int64 nDiffChangeTarget = 145000; // Patch effective @ block 145000
 
 
 // Coinye moving to a flat reward block 5/31/2021 (2500/block)
-int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
+int64_t static GetBlockValue(int nHeight, int64_t nFees, uint256 prevHash)
 {
-    int64 nSubsidy = 2500 * COIN;
+    int64_t nSubsidy = 2500 * COIN;
+
+    nSubsidy = 25000 * COIN;
 
     return nSubsidy + nFees;
 }
@@ -1479,6 +1478,21 @@ bool VerifySignature(const CCoins& txFrom, const CTransaction& txTo, unsigned in
     return CScriptCheck(txFrom, txTo, nIn, flags, nHashType)();
 }
 
+
+int GetRequiredMaturityDepth(int nHeight)
+{
+
+    if (nHeight >= COINBASE_MATURITY_SWITCH)
+    {
+        return COINBASE_MATURITY_NEW;
+    }
+    else
+    {
+        return COINBASE_MATURITY;
+    }
+}
+
+
 bool CTransaction::CheckInputs(CValidationState &state, CCoinsViewCache &inputs, bool fScriptChecks, unsigned int flags, std::vector<CScriptCheck> *pvChecks) const
 {
     if (!IsCoinBase())
@@ -1506,14 +1520,15 @@ bool CTransaction::CheckInputs(CValidationState &state, CCoinsViewCache &inputs,
                 if(coins.nHeight >= COINBASE_MATURITY_SWITCH)
                     minDepth = COINBASE_MATURITY_NEW;
 
-		//fail safe for old coins
+		//fail safe for old coins ** this is a bandaid **
 		if(coins.nHeight <= 1500000 )
 			minDepth = COINBASE_MATURITY_NEW;
 		if (nSpendHeight >= 1500000 ) {  // Old malformed blocks are not held to the same standard
                   if (nSpendHeight - coins.nHeight < minDepth)
                     return state.Invalid(error("CheckInputs() : tried to spend coinbase at depth %d", nSpendHeight - coins.nHeight));
                 }
-            } 
+            }  
+
 
             // Check for negative or overflow input values
             nValueIn += coins.vout[prevout.n].nValue;
@@ -2241,6 +2256,8 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
 {
     // Check for duplicate
     uint256 hash = GetHash();
+    //uint256 hash = block.GetHash();
+
     if (mapBlockIndex.count(hash))
         return state.Invalid(error("AcceptBlock() : block already in mapBlockIndex"));
 

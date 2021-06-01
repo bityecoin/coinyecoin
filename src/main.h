@@ -50,6 +50,7 @@ static const int64_t nMaxCoinsDBCache = 8;
 // Validation
 extern size_t nCoinCacheUsage;
 static const bool DEFAULT_TXINDEX = false;
+static const unsigned char REJECT_INVALID = 0x10;
 
 //Policy
 static const unsigned int DEFAULT_MAX_MEMPOOL_SIZE = 300;
@@ -656,6 +657,11 @@ public:
         // need a fee.
         return dPriority > 100 * COIN * 1440 / 250; // coinyecoin: 1440 blocks found a day. Priority cutoff is 100 coinyecoin day / 250 bytes.
     }
+
+
+
+int GetRequiredMaturityDepth(int nHeight);
+
 
 // Apply the effects of this transaction on the UTXO set represented by view
 void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCache &inputs, CTxUndo &txundo, int nHeight, const uint256 &txhash);
