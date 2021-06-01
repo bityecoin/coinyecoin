@@ -1107,7 +1107,7 @@ int64_t static GetBlockValue(int nHeight, int64_t nFees, uint256 prevHash)
 {
     int64_t nSubsidy = 2500 * COIN;
 
-    nSubsidy = 25000 * COIN;
+    nSubsidy = 2500 * COIN;
 
     return nSubsidy + nFees;
 }
