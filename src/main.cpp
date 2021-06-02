@@ -53,6 +53,7 @@ bool fReindex = false;
 bool fBenchmark = false;
 bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
+std::atomic_bool fImporting_new(false);
 
 size_t nCoinCacheUsage = 5000 * 300;
 

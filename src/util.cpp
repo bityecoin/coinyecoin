@@ -282,8 +282,6 @@ bool LogAcceptCategory(const char* category)
     return true;
 }
 
-
-
 int OutputDebugStringF(const char* pszFormat, ...)
 {
     if ( ! fWriteDebugLog ) return 0;
@@ -358,6 +356,7 @@ int OutputDebugStringF(const char* pszFormat, ...)
     return ret;
 }
 
+
 /**
  * fStartedNewLine is a state variable held by the calling context that will
  * suppress printing of the timestamp when multiple calls are made that don't
@@ -386,18 +385,6 @@ static std::string LogTimestampStr(const std::string &str, std::atomic_bool *fSt
 
     return strStamped;
 }
-
-
-/** Return a time useful for the debug log */
-int64_t GetLogTimeMicros()
-{
-    if (nMockTime) return nMockTime*1000000;
-
-    return GetTimeMicros();
-}
-
-
-
 
 int LogPrintStr(const std::string &str)
 {
@@ -438,6 +425,18 @@ int LogPrintStr(const std::string &str)
     }
     return ret;
 }
+
+
+
+/** Return a time useful for the debug log */
+int64_t GetLogTimeMicros()
+{
+    if (nMockTime) return nMockTime*1000000;
+
+    return GetTimeMicros();
+}
+
+
 
 string vstrprintf(const char *format, va_list ap)
 {
