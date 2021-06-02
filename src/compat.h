@@ -17,6 +17,10 @@
 #include <mswsock.h>
 #include <ws2tcpip.h>
 #else
+#include <sys/mman.h>
+#include <sys/select.h>
+#include <limits.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/fcntl.h>
@@ -65,6 +69,14 @@ inline int myclosesocket(SOCKET& hSocket)
     return ret;
 }
 #define closesocket(s)      myclosesocket(s)
+
+ bool static inline IsSelectableSocket(const SOCKET& s) {
+ #if defined(USE_POLL) || defined(WIN32)
+     return true;
+ #else
+     return (s < FD_SETSIZE);
+ #endif
+ }
 
 
 #endif

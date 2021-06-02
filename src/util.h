@@ -7,7 +7,7 @@
 #define BITCOIN_UTIL_H
 
 #include "uint256.h"
-
+#include "tinyformat.h"
 #include <stdarg.h>
 
 #ifndef WIN32
@@ -20,6 +20,17 @@
 #include <utility>
 #include <vector>
 #include <string>
+
+#include "compat.h"
+
+#include <cstdio>
+#include <exception>
+#include <map>
+#include <stdarg.h>
+#include <stdint.h>
+#include <string>
+#include <utility>
+#include <vector>
 
 #include <boost/version.hpp>
 #include <boost/thread.hpp>
@@ -141,6 +152,7 @@ extern bool fDebugNet;
 extern bool fWriteDebugLog;
 extern bool fPrintToConsole;
 extern bool fPrintToDebugger;
+extern bool fPrintToDebugLog;
 extern bool fDaemon;
 extern bool fServer;
 extern bool fCommandLine;
@@ -149,11 +161,62 @@ extern bool fTestNet;
 extern bool fBloomFilters;
 extern bool fNoListen;
 extern bool fLogTimestamps;
+extern bool fLogTimeMicros;
+extern bool fLogIPs;
+
 extern volatile bool fReopenDebugLog;
+static const bool DEFAULT_LOGTIMEMICROS = false;
+
 
 void RandAddSeed();
 void RandAddSeedPerfmon();
 int ATTR_WARN_PRINTF(1,2) OutputDebugStringF(const char* pszFormat, ...);
+
+
+
+/* Return true if log accepts specified category */
+bool LogAcceptCategory(const char* category);
+/* Send a string to the log output */
+int LogPrintStr(const std::string &str);
+
+//#define strprintf tfm::format
+#define LogPrintf(...) LogPrint(NULL, __VA_ARGS__)
+
+/* When we switch to C++11, this can be switched to variadic templates instead
+ * of this macro-based construction (see tinyformat.h).
+ */
+#define MAKE_ERROR_AND_LOG_FUNC(n)                                        \
+    /*   Print to debug.log if -debug=category switch is given OR category is NULL. */ \
+    template<TINYFORMAT_ARGTYPES(n)>                                          \
+    static inline int LogPrint(const char* category, const char* format, TINYFORMAT_VARARGS(n))  \
+    {                                                                         \
+        if(!LogAcceptCategory(category)) return 0;                            \
+        return LogPrintStr(tfm::format(format, TINYFORMAT_PASSARGS(n))); \
+    }                                                                         \
+    /*   Log error and return false */                                        \
+    template<TINYFORMAT_ARGTYPES(n)>                                          \
+    static inline bool error(const char* format, TINYFORMAT_VARARGS(n))                     \
+    {                                                                         \
+        LogPrintStr("ERROR: " + tfm::format(format, TINYFORMAT_PASSARGS(n)) + "\n"); \
+        return false;                                                         \
+    }
+
+TINYFORMAT_FOREACH_ARGNUM(MAKE_ERROR_AND_LOG_FUNC)
+/* Zero-arg versions of logging and error, these are not covered by
+ * TINYFORMAT_FOREACH_ARGNUM
+ */
+static inline int LogPrint(const char* category, const char* format)
+{
+    if(!LogAcceptCategory(category)) return 0;
+    return LogPrintStr(format);
+}
+static inline bool error(const char* format)
+{
+    LogPrintStr(std::string("ERROR: ") + format + "\n");
+    return false;
+}
+
+
 
 /*
   Rationale for the real_strprintf / strprintf construction:
@@ -171,7 +234,8 @@ std::string real_strprintf(const std::string &format, int dummy, ...);
 #define strprintf(format, ...) real_strprintf(format, 0, __VA_ARGS__)
 std::string vstrprintf(const char *format, va_list ap);
 
-bool ATTR_WARN_PRINTF(1,2) error(const char *format, ...);
+
+//bool ATTR_WARN_PRINTF(1,2) error(const char *format, ...);
 
 /* Redefine printf so that it directs output to debug.log
  *
@@ -226,6 +290,11 @@ int GetRandInt(int nMax);
 uint64 GetRand(uint64 nMax);
 uint256 GetRandHash();
 int64 GetTime();
+int64_t GetTimeMillis_New();
+int64_t GetTimeMicros_New();
+int64_t GetSystemTimeInSeconds(); // Like GetTime(), but not mockable
+int64_t GetLogTimeMicros();
+
 void SetMockTime(int64 nMockTimeIn);
 int64 GetAdjustedTime();
 int64 GetTimeOffset();
@@ -346,7 +415,7 @@ inline int64 GetTimeMillis()
             boost::posix_time::ptime(boost::gregorian::date(1970,1,1))).total_milliseconds();
 }
 
-inline int64 GetTimeMicros()
+inline int64_t GetTimeMicros()
 {
     return (boost::posix_time::ptime(boost::posix_time::microsec_clock::universal_time()) -
             boost::posix_time::ptime(boost::gregorian::date(1970,1,1))).total_microseconds();

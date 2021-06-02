@@ -8,6 +8,7 @@
 #include "util.h"
 #include "sync.h"
 #include "hash.h"
+#include "compat.h"
 
 #ifndef WIN32
 #include <sys/fcntl.h>
@@ -15,6 +16,8 @@
 
 #include <boost/algorithm/string/case_conv.hpp> // for to_lower()
 #include <boost/algorithm/string/predicate.hpp> // for startswith() and endswith()
+#include <atomic>
+#include <netinet/tcp.h>
 
 using namespace std;
 
@@ -26,6 +29,10 @@ int nConnectTimeout = 5000;
 bool fNameLookup = false;
 
 static const unsigned char pchIPv4[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff };
+
+// Need ample time for negotiation for very slow proxies such as Tor (milliseconds)
+static const int SOCKS5_RECV_TIMEOUT = 20 * 1000;
+static std::atomic<bool> interruptSocks5Recv(false);
 
 enum Network ParseNetwork(std::string net) {
     boost::to_lower(net);
@@ -210,6 +217,7 @@ bool static Socks4(const CService &addrDest, SOCKET& hSocket)
 
 bool static Socks5(string strDest, int port, SOCKET& hSocket)
 {
+//    IntrRecvError recvr;
     printf("SOCKS5 connecting %s\n", strDest.c_str());
     if (strDest.size() > 255)
     {
@@ -310,64 +318,149 @@ bool static Socks5(string strDest, int port, SOCKET& hSocket)
     return true;
 }
 
+struct timeval MillisToTimeval(int64_t nTimeout)
+{
+    struct timeval timeout;
+    timeout.tv_sec  = nTimeout / 1000;
+    timeout.tv_usec = (nTimeout % 1000) * 1000;
+    return timeout;
+}
+
+/* enum class IntrRecvError {
+    OK,
+    Timeout,
+    Disconnected,
+    NetworkError,
+    Interrupted
+}; */
+
+/**
+ * Read bytes from socket. This will either read the full number of bytes requested
+ * or return False on error or timeout.
+ * This function can be interrupted by calling InterruptSocks5()
+ *
+ * @param data Buffer to receive into
+ * @param len  Length of data to receive
+ * @param timeout  Timeout in milliseconds for receive operation
+ *
+ * @note This function requires that hSocket is in non-blocking mode.
+ */
+/* static IntrRecvError InterruptibleRecv(char* data, size_t len, int timeout, SOCKET& hSocket)
+{
+    int64_t curTime = GetTimeMillis();
+    int64_t endTime = curTime + timeout;
+    // Maximum time to wait in one select call. It will take up until this time (in millis)
+    // to break off in case of an interruption.
+    const int64_t maxWait = 1000;
+    while (len > 0 && curTime < endTime) {
+        ssize_t ret = recv(hSocket, data, len, 0); // Optimistically try the recv first
+        if (ret > 0) {
+            len -= ret;
+            data += ret;
+        } else if (ret == 0) { // Unexpected disconnection
+            return IntrRecvError::Disconnected;
+        } else { // Other error or blocking
+            int nErr = WSAGetLastError();
+            if (nErr == WSAEINPROGRESS || nErr == WSAEWOULDBLOCK || nErr == WSAEINVAL) {
+                if (!IsSelectableSocket(hSocket)) {
+                    return IntrRecvError::NetworkError;
+                }
+                struct timeval tval = MillisToTimeval(std::min(endTime - curTime, maxWait));
+                fd_set fdset;
+                FD_ZERO(&fdset);
+                FD_SET(hSocket, &fdset);
+                int nRet = select(hSocket + 1, &fdset, NULL, NULL, &tval);
+                if (nRet == SOCKET_ERROR) {
+                    return IntrRecvError::NetworkError;
+                }
+            } else {
+                return IntrRecvError::Disconnected;
+            }
+        }
+        if (interruptSocks5Recv)
+            return IntrRecvError::Interrupted;
+        curTime = GetTimeMillis();
+    }
+    return len == 0 ? IntrRecvError::OK : IntrRecvError::Timeout;
+} */
+
+struct ProxyCredentials
+{
+    std::string username;
+    std::string password;
+};
+
+std::string Socks5ErrorString(int err)
+{
+    switch(err) {
+        case 0x01: return "general failure";
+        case 0x02: return "connection not allowed";
+        case 0x03: return "network unreachable";
+        case 0x04: return "host unreachable";
+        case 0x05: return "connection refused";
+        case 0x06: return "TTL expired";
+        case 0x07: return "protocol error";
+        case 0x08: return "address type not supported";
+        default:   return "unknown";
+    }
+}
+
+
+
 bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRet, int nTimeout)
 {
     hSocketRet = INVALID_SOCKET;
 
-#ifdef USE_IPV6
     struct sockaddr_storage sockaddr;
-#else
-    struct sockaddr sockaddr;
-#endif
     socklen_t len = sizeof(sockaddr);
     if (!addrConnect.GetSockAddr((struct sockaddr*)&sockaddr, &len)) {
-        printf("Cannot connect to %s: unsupported network\n", addrConnect.ToString().c_str());
+        LogPrintf("Cannot connect to %s: unsupported network\n", addrConnect.ToString());
         return false;
     }
 
     SOCKET hSocket = socket(((struct sockaddr*)&sockaddr)->sa_family, SOCK_STREAM, IPPROTO_TCP);
     if (hSocket == INVALID_SOCKET)
         return false;
-#ifdef SO_NOSIGPIPE
+
     int set = 1;
+#ifdef SO_NOSIGPIPE
+    // Different way of disabling SIGPIPE on BSD
     setsockopt(hSocket, SOL_SOCKET, SO_NOSIGPIPE, (void*)&set, sizeof(int));
 #endif
 
+
+    //Disable Nagle's algorithm
 #ifdef WIN32
-    u_long fNonblock = 1;
-    if (ioctlsocket(hSocket, FIONBIO, &fNonblock) == SOCKET_ERROR)
+    setsockopt(hSocket, IPPROTO_TCP, TCP_NODELAY, (const char*)&set, sizeof(int));
 #else
-    int fFlags = fcntl(hSocket, F_GETFL, 0);
-    if (fcntl(hSocket, F_SETFL, fFlags | O_NONBLOCK) == -1)
+    setsockopt(hSocket, IPPROTO_TCP, TCP_NODELAY, (void*)&set, sizeof(int));
 #endif
-    {
-        closesocket(hSocket);
-        return false;
-    }
+
+    // Set to non-blocking
+    if (!SetSocketNonBlocking(hSocket, true))
+        return error("ConnectSocketDirectly: Setting socket to non-blocking failed, error %s\n", NetworkErrorString(WSAGetLastError()));
 
     if (connect(hSocket, (struct sockaddr*)&sockaddr, len) == SOCKET_ERROR)
     {
+        int nErr = WSAGetLastError();
         // WSAEINVAL is here because some legacy version of winsock uses it
-        if (WSAGetLastError() == WSAEINPROGRESS || WSAGetLastError() == WSAEWOULDBLOCK || WSAGetLastError() == WSAEINVAL)
+        if (nErr == WSAEINPROGRESS || nErr == WSAEWOULDBLOCK || nErr == WSAEINVAL)
         {
-            struct timeval timeout;
-            timeout.tv_sec  = nTimeout / 1000;
-            timeout.tv_usec = (nTimeout % 1000) * 1000;
-
+            struct timeval timeout = MillisToTimeval(nTimeout);
             fd_set fdset;
             FD_ZERO(&fdset);
             FD_SET(hSocket, &fdset);
             int nRet = select(hSocket + 1, NULL, &fdset, NULL, &timeout);
             if (nRet == 0)
             {
-                printf("connection timeout\n");
-                closesocket(hSocket);
+                LogPrintf("net", "connection to %s timeout\n", addrConnect.ToString());
+                CloseSocket(hSocket);
                 return false;
             }
             if (nRet == SOCKET_ERROR)
             {
-                printf("select() for connection failed: %i\n",WSAGetLastError());
-                closesocket(hSocket);
+                LogPrintf("select() for %s failed: %s\n", addrConnect.ToString(), NetworkErrorString(WSAGetLastError()));
+                CloseSocket(hSocket);
                 return false;
             }
             socklen_t nRetSize = sizeof(nRet);
@@ -377,14 +470,14 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
             if (getsockopt(hSocket, SOL_SOCKET, SO_ERROR, &nRet, &nRetSize) == SOCKET_ERROR)
 #endif
             {
-                printf("getsockopt() for connection failed: %i\n",WSAGetLastError());
-                closesocket(hSocket);
+                LogPrintf("getsockopt() for %s failed: %s\n", addrConnect.ToString(), NetworkErrorString(WSAGetLastError()));
+                CloseSocket(hSocket);
                 return false;
             }
             if (nRet != 0)
             {
-                printf("connect() failed after select(): %s\n",strerror(nRet));
-                closesocket(hSocket);
+                LogPrintf("connect() to %s failed after select(): %s\n", addrConnect.ToString(), NetworkErrorString(nRet));
+                CloseSocket(hSocket);
                 return false;
             }
         }
@@ -394,25 +487,10 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
         else
 #endif
         {
-            printf("connect() failed: %i\n",WSAGetLastError());
-            closesocket(hSocket);
+            LogPrintf("connect() to %s failed: %s\n", addrConnect.ToString(), NetworkErrorString(WSAGetLastError()));
+            CloseSocket(hSocket);
             return false;
         }
-    }
-
-    // this isn't even strictly necessary
-    // CNode::ConnectNode immediately turns the socket back to non-blocking
-    // but we'll turn it back to blocking just in case
-#ifdef WIN32
-    fNonblock = 0;
-    if (ioctlsocket(hSocket, FIONBIO, &fNonblock) == SOCKET_ERROR)
-#else
-    fFlags = fcntl(hSocket, F_GETFL, 0);
-    if (fcntl(hSocket, F_SETFL, fFlags & ~O_NONBLOCK) == SOCKET_ERROR)
-#endif
-    {
-        closesocket(hSocket);
-        return false;
     }
 
     hSocketRet = hSocket;
@@ -728,6 +806,54 @@ bool CNetAddr::IsValid() const
     }
 
     return true;
+}
+
+// Borrowd from latest Dogecoin distro
+#ifdef WIN32
+std::string NetworkErrorString(int err)
+{
+    char buf[256];
+    buf[0] = 0;
+    if(FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_MAX_WIDTH_MASK,
+            NULL, err, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+            buf, sizeof(buf), NULL))
+    {
+        return strprintf("%s (%d)", buf, err);
+    }
+    else
+    {
+        return strprintf("Unknown error (%d)", err);
+    }
+}
+#else
+std::string NetworkErrorString(int err)
+{
+    char buf[256];
+    const char *s = buf;
+    buf[0] = 0;
+    /* Too bad there are two incompatible implementations of the
+     * thread-safe strerror. */
+#ifdef STRERROR_R_CHAR_P /* GNU variant can return a pointer outside the passed buffer */
+    s = strerror_r(err, buf, sizeof(buf));
+#else /* POSIX variant always returns message in buffer */
+    if (strerror_r(err, buf, sizeof(buf)))
+        buf[0] = 0;
+#endif
+    return strprintf("%s (%d)", s, err);
+}
+#endif
+
+bool CloseSocket(SOCKET& hSocket)
+{
+    if (hSocket == INVALID_SOCKET)
+        return false;
+#ifdef WIN32
+    int ret = closesocket(hSocket);
+#else
+    int ret = close(hSocket);
+#endif
+    hSocket = INVALID_SOCKET;
+    return ret != SOCKET_ERROR;
 }
 
 bool CNetAddr::IsRoutable() const
@@ -1137,4 +1263,39 @@ void CService::print() const
 void CService::SetPort(unsigned short portIn)
 {
     port = portIn;
+}
+
+
+bool SetSocketNonBlocking(SOCKET& hSocket, bool fNonBlocking)
+{
+    if (fNonBlocking) {
+#ifdef WIN32
+        u_long nOne = 1;
+        if (ioctlsocket(hSocket, FIONBIO, &nOne) == SOCKET_ERROR) {
+#else
+        int fFlags = fcntl(hSocket, F_GETFL, 0);
+        if (fcntl(hSocket, F_SETFL, fFlags | O_NONBLOCK) == SOCKET_ERROR) {
+#endif
+            CloseSocket(hSocket);
+            return false;
+        }
+    } else {
+#ifdef WIN32
+        u_long nZero = 0;
+        if (ioctlsocket(hSocket, FIONBIO, &nZero) == SOCKET_ERROR) {
+#else
+        int fFlags = fcntl(hSocket, F_GETFL, 0);
+        if (fcntl(hSocket, F_SETFL, fFlags & ~O_NONBLOCK) == SOCKET_ERROR) {
+#endif
+            CloseSocket(hSocket);
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void InterruptSocks5(bool interrupt)
+{
+    interruptSocks5Recv = interrupt;
 }

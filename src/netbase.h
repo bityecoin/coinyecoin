@@ -149,4 +149,9 @@ bool LookupNumeric(const char *pszName, CService& addr, int portDefault = 0);
 bool ConnectSocket(const CService &addr, SOCKET& hSocketRet, int nTimeout = nConnectTimeout);
 bool ConnectSocketByName(CService &addr, SOCKET& hSocketRet, const char *pszDest, int portDefault = 0, int nTimeout = nConnectTimeout);
 
+std::string NetworkErrorString(int err);
+bool CloseSocket(SOCKET& hSocket);
+bool SetSocketNonBlocking(SOCKET& hSocket, bool fNonBlocking);
+struct timeval MillisToTimeval(int64_t nTimeout);
+
 #endif

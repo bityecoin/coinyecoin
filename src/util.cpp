@@ -77,6 +77,7 @@ bool fDebugNet = false;
 bool fWriteDebugLog = false;
 bool fPrintToConsole = false;
 bool fPrintToDebugger = false;
+bool fPrintToDebugLog = true;
 bool fDaemon = false;
 bool fServer = false;
 bool fCommandLine = false;
@@ -85,9 +86,14 @@ bool fTestNet = false;
 bool fBloomFilters = true;
 bool fNoListen = false;
 bool fLogTimestamps = false;
+bool fLogTimeMicros = DEFAULT_LOGTIMEMICROS;
+
 CMedianFilter<int64> vTimeOffsets(200,0);
 volatile bool fReopenDebugLog = false;
 bool fCachedPath[2] = {false, false};
+static int64_t nMockTime = 0; //!< For unit testing
+
+
 
 // Init OpenSSL library multithreading support
 static CCriticalSection** ppmutexOpenSSL;
@@ -224,6 +230,13 @@ static boost::once_flag debugPrintInitFlag = BOOST_ONCE_INIT;
 // in a thread-safe manner the first time it is called:
 static FILE* fileout = NULL;
 static boost::mutex* mutexDebugLog = NULL;
+static list<string> *vMsgsBeforeOpenLog;
+
+static int FileWriteStr(const std::string &str, FILE *fp)
+{
+    return fwrite(str.data(), 1, str.size(), fp);
+}
+
 
 static void DebugPrintInit()
 {
@@ -236,6 +249,40 @@ static void DebugPrintInit()
 
     mutexDebugLog = new boost::mutex();
 }
+
+bool LogAcceptCategory(const char* category)
+{
+    if (category != NULL)
+    {
+        if (!fDebug)
+            return false;
+
+        // Give each thread quick access to -debug settings.
+        // This helps prevent issues debugging global destructors,
+        // where mapMultiArgs might be deleted before another
+        // global destructor calls LogPrint()
+        static boost::thread_specific_ptr<set<string> > ptrCategory;
+        if (ptrCategory.get() == NULL)
+        {
+            if (mapMultiArgs.count("-debug")) {
+                const vector<string>& categories = mapMultiArgs.at("-debug");
+                ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
+                // thread_specific_ptr automatically deletes the set when the thread ends.
+            } else
+                ptrCategory.reset(new set<string>());
+        }
+        const set<string>& setCategories = *ptrCategory.get();
+
+        // if not debugging everything and not debugging specific category, LogPrint does nothing.
+        if (setCategories.count(string("")) == 0 &&
+            setCategories.count(string("1")) == 0 &&
+            setCategories.count(string(category)) == 0)
+            return false;
+    }
+    return true;
+}
+
+
 
 int OutputDebugStringF(const char* pszFormat, ...)
 {
@@ -308,6 +355,87 @@ int OutputDebugStringF(const char* pszFormat, ...)
         }
     }
 #endif
+    return ret;
+}
+
+/**
+ * fStartedNewLine is a state variable held by the calling context that will
+ * suppress printing of the timestamp when multiple calls are made that don't
+ * end in a newline. Initialize it to true, and hold it, in the calling context.
+ */
+static std::string LogTimestampStr(const std::string &str, std::atomic_bool *fStartedNewLine)
+{
+    string strStamped;
+
+    if (!fLogTimestamps)
+        return str;
+
+    if (*fStartedNewLine) {
+        int64_t nTimeMicros = GetLogTimeMicros();
+        strStamped = DateTimeStrFormat("%Y-%m-%d %H:%M:%S", nTimeMicros/1000000);
+        if (fLogTimeMicros)
+            strStamped += strprintf(".%06ld", nTimeMicros%1000000);
+        strStamped += ' ' + str;
+    } else
+        strStamped = str;
+
+    if (!str.empty() && str[str.size()-1] == '\n')
+        *fStartedNewLine = true;
+    else
+        *fStartedNewLine = false;
+
+    return strStamped;
+}
+
+
+/** Return a time useful for the debug log */
+int64_t GetLogTimeMicros()
+{
+    if (nMockTime) return nMockTime*1000000;
+
+    return GetTimeMicros();
+}
+
+
+
+
+int LogPrintStr(const std::string &str)
+{
+    int ret = 0; // Returns total number of characters written
+    static std::atomic_bool fStartedNewLine(true);
+
+    string strTimestamped = LogTimestampStr(str, &fStartedNewLine);
+
+    if (fPrintToConsole)
+    {
+        // print to console
+        ret = fwrite(strTimestamped.data(), 1, strTimestamped.size(), stdout);
+        fflush(stdout);
+    }
+    else if (fPrintToDebugLog)
+    {
+        boost::call_once(&DebugPrintInit, debugPrintInitFlag);
+        boost::mutex::scoped_lock scoped_lock(*mutexDebugLog);
+
+        // buffer if we haven't opened the log yet
+        if (fileout == NULL) {
+            assert(vMsgsBeforeOpenLog);
+            ret = strTimestamped.length();
+            vMsgsBeforeOpenLog->push_back(strTimestamped);
+        }
+        else
+        {
+            // reopen the log file, if requested
+            if (fReopenDebugLog) {
+                fReopenDebugLog = false;
+                boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
+                if (freopen(pathDebug.string().c_str(),"a",fileout) != NULL)
+                    setbuf(fileout, NULL); // unbuffered
+            }
+
+            ret = FileWriteStr(strTimestamped, fileout);
+        }
+    }
     return ret;
 }
 
@@ -834,6 +962,20 @@ string EncodeBase32(const string& str)
     return EncodeBase32((const unsigned char*)str.c_str(), str.size());
 }
 
+
+
+void InitLogging()
+{
+    //fPrintToConsole = GetBoolArg("-printtoconsole", false);
+    //fLogTimestamps = GetBoolArg("-logtimestamps", DEFAULT_LOGTIMESTAMPS);
+    fLogTimeMicros = GetBoolArg("-logtimemicros", DEFAULT_LOGTIMEMICROS);
+    //fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
+
+    //LogPrint("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    //LogPrint("CoinyeCoin version %s\n", FormatFullVersion());
+}
+
+
 vector<unsigned char> DecodeBase32(const char* p, bool* pfInvalid)
 {
     static const int decode32_table[256] =
@@ -1298,7 +1440,7 @@ void ShrinkDebugFile()
 //  - Median of other nodes clocks
 //  - The user (asking the user to fix the system clock if the first two disagree)
 //
-static int64 nMockTime = 0;  // For unit testing
+//static int64 nMockTime = 0;  // For unit testing
 
 int64 GetTime()
 {
