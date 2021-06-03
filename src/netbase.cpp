@@ -415,6 +415,7 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
     socklen_t len = sizeof(sockaddr);
     if (!addrConnect.GetSockAddr((struct sockaddr*)&sockaddr, &len)) {
         //LogPrintf("Cannot connect to %s: unsupported network\n", addrConnect.ToString());
+        printf("Cannot connect to %s: unsupported network\n", addrConnect.ToString().c_str());
         return false;
     }
 
@@ -453,13 +454,13 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
             int nRet = select(hSocket + 1, NULL, &fdset, NULL, &timeout);
             if (nRet == 0)
             {
-                //LogPrintf("net", "connection to %s timeout\n", addrConnect.ToString());
+                printf("connection to %s timeout\n", addrConnect.ToString().c_str());
                 CloseSocket(hSocket);
                 return false;
             }
             if (nRet == SOCKET_ERROR)
             {
-                //LogPrintf("select() for %s failed: %s\n", addrConnect.ToString(), NetworkErrorString(WSAGetLastError()));
+                printf("select() for %s failed: %i\n", addrConnect.ToString().c_str(), WSAGetLastError());
                 CloseSocket(hSocket);
                 return false;
             }
@@ -470,13 +471,13 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
             if (getsockopt(hSocket, SOL_SOCKET, SO_ERROR, &nRet, &nRetSize) == SOCKET_ERROR)
 #endif
             {
-                //LogPrintf("getsockopt() for %s failed: %s\n", addrConnect.ToString(), NetworkErrorString(WSAGetLastError()));
+                printf("getsockopt() for %s failed: %i\n", addrConnect.ToString().c_str(), WSAGetLastError());
                 CloseSocket(hSocket);
                 return false;
             }
             if (nRet != 0)
             {
-                //LogPrintf("connect() to %s failed after select(): %s\n", addrConnect.ToString(), NetworkErrorString(nRet));
+                printf("connect() to %s failed after select(): %s\n", addrConnect.ToString().c_str(), strerror(nRet));
                 CloseSocket(hSocket);
                 return false;
             }
@@ -487,7 +488,7 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
         else
 #endif
         {
-            //LogPrintf("connect() to %s failed: %s\n", addrConnect.ToString(), NetworkErrorString(WSAGetLastError()));
+            printf("connect() to %s failed: %i\n", addrConnect.ToString().c_str(), WSAGetLastError());
             CloseSocket(hSocket);
             return false;
         }

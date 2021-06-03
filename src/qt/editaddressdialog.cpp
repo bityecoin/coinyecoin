@@ -1,4 +1,4 @@
-#include "editaddressdialog.h"
+    #include "editaddressdialog.h"
 #include "ui_editaddressdialog.h"
 
 #include "addresstablemodel.h"

@@ -1198,11 +1198,11 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-       {"coinye.net", "coinye.net" },
-       {"86.80.17.172", "seed2.coinyeco.in"},
-       {"seed3.coinyeco.in", "seed3.coinyeco.in"},
-       {"seed4.coinyeco.in", "seed4.coinyeco.in"},
-       {"seed5.coinyeco.in", "seed5.coinyeco.in"},
+       //{"gayfishpool.com", "135.148.27.31" },
+       //{"80.100.207.54", "seed2.coinyeco.in"},
+       //{"seed3.coinyeco.in", "seed3.coinyeco.in"},
+       //{"seed4.coinyeco.in", "seed4.coinyeco.in"},
+       //{"seed5.coinyeco.in", "seed5.coinyeco.in"},
     {NULL, NULL}
 };
 
@@ -1252,10 +1252,10 @@ void ThreadDNSAddressSeed()
 
 
 
-
+// seeds of primary wallets hex values
 unsigned int pnSeed[] =
 {
-    0x92B9B572, 0xA2F3716E, 0x5F551D90, 0x180909c9, 0x5064cf36, 0x565011ac
+    //0x87941b1f, 0x92B9B572, 0xA2F3716E, 0x5F551D90, 0x180909c9, 0x5064cf36, 0x565011ac
 };
 
 void DumpAddresses()
