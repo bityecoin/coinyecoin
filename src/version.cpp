@@ -9,7 +9,7 @@
 // Name of client reported in the 'version' message. Report the same name
 // for both bitcoind and bitcoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
-const std::string CLIENT_NAME("Fishdicks");
+const std::string CLIENT_NAME("Limp Fishdicks");
 
 // Client version number
 #define CLIENT_VERSION_SUFFIX   ""
@@ -38,7 +38,7 @@ const std::string CLIENT_NAME("Fishdicks");
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
 #    define GIT_COMMIT_ID ""
-#    define GIT_COMMIT_DATE "Wed, 12 Mar 2014 13:37:00 +0000"
+#    define GIT_COMMIT_DATE "Saturday, 5 June 2021 -  +0000"
 #endif
 
 #define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \

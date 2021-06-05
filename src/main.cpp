@@ -1106,9 +1106,14 @@ static const int64 nDiffChangeTarget = 145000; // Patch effective @ block 145000
 // Coinye moving to a flat reward block 5/31/2021 (2500/block)
 int64_t static GetBlockValue(int nHeight, int64_t nFees, uint256 prevHash)
 {
-    int64_t nSubsidy = 2500 * COIN;
+    /* int64_t nSubsidy = 2500 * COIN;
 
-    nSubsidy = 2500 * COIN;
+    nSubsidy = 2500 * COIN; */
+    // PENDING
+
+        int64 nSubsidy = 666666 * COIN;
+
+        nSubsidy >>= (nHeight / 100000); // Subsidy is halved every 100k blocks
 
     return nSubsidy + nFees;
 }
