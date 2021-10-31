@@ -12,7 +12,7 @@ echo "rpcallowip=127.0.0.1" >> coinyecoin.conf
 echo "rpcconnect=127.0.0.1" >> coinyecoin.conf
 echo "rpcuser=coinyecoinrpc" >> coinyecoin.conf
 echo "rpcpassword="$(openssl rand -base64 36) >> coinyecoin.conf
-curl http://coinye.planetburt.com/schmapi/nodes.php >> coinyecoin.conf
+curl http://coinyeunofficial.net/nodes.txt >> coinyecoin.conf
 read -p "Manually create .coinyecoin folder and move over conf file? Y/N?  " -n 1 -r
 if [[ ! $REPLY =~ ^[Nn]$ ]]
 then
