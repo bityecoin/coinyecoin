@@ -952,8 +952,9 @@ int CMerkleTx::GetBlocksToMaturity() const
 {
     if (!IsCoinBase())
         return 0;
-
-    return max(0, (COINBASE_MATURITY_NEW+20) - GetDepthInMainChain());
+    // to appease Bart, this should be revisited if this coin is ever going to advance beyond its original ponzi scheme inception.
+    return max(0, (COINBASE_MATURITY+20) - GetDepthInMainChain());
+    //return max(0, (COINBASE_MATURITY_NEW+20) - GetDepthInMainChain());
 }
 
 
@@ -1159,6 +1160,97 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
 {
     unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
+
+    // Genesis block
+    if (pindexLast == NULL)
+        return nProofOfWorkLimit;
+
+    // Only change once per interval
+    if ((pindexLast->nHeight+1) % nInterval != 0)
+    {
+        // Special difficulty rule for testnet:
+        if (fTestNet)
+        {
+            // If the new block's timestamp is more than 2*nTargetSpacing minutes
+            // then allow mining of a min-difficulty block.
+            if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
+                return nProofOfWorkLimit;
+            else
+            {
+                // Return the last non-special-min-difficulty-rules-block
+                const CBlockIndex* pindex = pindexLast;
+                while (pindex->pprev && pindex->nHeight % nInterval != 0 && pindex->nBits == nProofOfWorkLimit)
+                    pindex = pindex->pprev;
+                return pindex->nBits;
+            }
+        }
+
+        return pindexLast->nBits;
+    }
+
+    // CoinyeCoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
+    int blockstogoback = nInterval-1;
+    if ((pindexLast->nHeight+1) != nInterval)
+        blockstogoback = nInterval;
+
+    // Go back by what we want to be 14 days worth of blocks
+    const CBlockIndex* pindexFirst = pindexLast;
+    for (int i = 0; pindexFirst && i < blockstogoback; i++)
+        pindexFirst = pindexFirst->pprev;
+    assert(pindexFirst);
+
+    // Limit adjustment step
+    int64_t nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
+    //printf("  nActualTimespan = %" PRI64d "  before bounds\n", nActualTimespan);
+    printf("  nActualTimespan = %zu before bounds\n", nActualTimespan);
+
+	if(pindexLast->nHeight+1 > 10000)	
+	{
+		if (nActualTimespan < nTargetTimespan/4)
+			nActualTimespan = nTargetTimespan/4;
+		if (nActualTimespan > nTargetTimespan*4)
+			nActualTimespan = nTargetTimespan*4;
+	}
+	else if(pindexLast->nHeight+1 > 5000)
+	{
+		if (nActualTimespan < nTargetTimespan/8)
+			nActualTimespan = nTargetTimespan/8;
+		if (nActualTimespan > nTargetTimespan*4)
+			nActualTimespan = nTargetTimespan*4;
+	}
+	else 
+	{
+		if (nActualTimespan < nTargetTimespan/16)
+			nActualTimespan = nTargetTimespan/16;
+		if (nActualTimespan > nTargetTimespan*4)
+			nActualTimespan = nTargetTimespan*4;
+	}
+
+    // Retarget
+    CBigNum bnNew;
+    bnNew.SetCompact(pindexLast->nBits);
+    bnNew *= nActualTimespan;
+    bnNew /= nTargetTimespan;
+
+    if (bnNew > bnProofOfWorkLimit)
+        bnNew = bnProofOfWorkLimit;
+
+    /// debug print
+    printf("GetNextWorkRequired RETARGET\n");
+// Depreciated print
+//    printf("nTargetTimespan = %" PRI64d "    nActualTimespan = %" PRI64d "\n", nTargetTimespan, nActualTimespan);
+    printf("nTargetTimespan = %ld    nActualTimespan = %ld\n", nTargetTimespan, nActualTimespan);
+    printf("Before: %08x  %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
+    printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+
+    return bnNew.GetCompact();
+}
+/* More wallets need to be upgraded before this function can be enabled.  This solves gravity wells and gradually lowers difficulty when blocks don't get solved */
+/*
+unsigned int static GetNextWorkRequired_Upgrade(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
+{
+    unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
     int nHeight = pindexLast->nHeight + 1;
     bool fNewDifficultyProtocol = (nHeight >= nDiffChangeTarget);
     int64_t retargetTimespan = nTargetTimespan;
@@ -1245,7 +1337,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     }
 
     // Retarget
-    CBigNum bnNew;
+    CBigNum bnNew ;
     bnNew.SetCompact(pindexLast->nBits);
     bnNew *= nActualTimespan;
     bnNew /= retargetTimespan;
@@ -1261,7 +1353,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
 
     return bnNew.GetCompact();
-}
+} */
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 {
@@ -1487,15 +1579,16 @@ bool VerifySignature(const CCoins& txFrom, const CTransaction& txTo, unsigned in
 
 int GetRequiredMaturityDepth(int nHeight)
 {
+    // More appeasement....
 
-    if (nHeight >= COINBASE_MATURITY_SWITCH)
+    /* if (nHeight >= COINBASE_MATURITY_SWITCH)
     {
         return COINBASE_MATURITY_NEW;
     }
     else
-    {
+    { */
         return COINBASE_MATURITY;
-    }
+    //}
 }
 
 
@@ -1523,16 +1616,16 @@ bool CTransaction::CheckInputs(CValidationState &state, CCoinsViewCache &inputs,
             // If prev is coinbase, check that it's matured
             if (coins.IsCoinBase()) {
                 int minDepth = COINBASE_MATURITY;
-                if(coins.nHeight >= COINBASE_MATURITY_SWITCH)
-                    minDepth = COINBASE_MATURITY_NEW;
+                //if(coins.nHeight >= COINBASE_MATURITY_SWITCH)
+                //    minDepth = COINBASE_MATURITY_NEW;
 
 		//fail safe for old coins ** this is a bandaid **
-		if(coins.nHeight <= 1500000 )
-			minDepth = COINBASE_MATURITY_NEW;
-		if (nSpendHeight >= 1500000 ) {  // Old malformed blocks are not held to the same standard
+		//if(coins.nHeight <= 1500000 )
+		//	minDepth = COINBASE_MATURITY_NEW;
+		//if (nSpendHeight >= 1500000 ) {  // Old malformed blocks are not held to the same standard
                   if (nSpendHeight - coins.nHeight < minDepth)
                     return state.Invalid(error("CheckInputs() : tried to spend coinbase at depth %d", nSpendHeight - coins.nHeight));
-                }
+                //}
             }  
 
 
