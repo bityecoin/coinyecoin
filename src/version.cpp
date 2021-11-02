@@ -12,7 +12,7 @@
 const std::string CLIENT_NAME("Limper Fishdicks");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   ""
+#define CLIENT_VERSION_SUFFIX   "a"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.

@@ -1119,9 +1119,9 @@ int64_t static GetBlockValue(int nHeight, int64_t nFees, uint256 prevHash)
     return nSubsidy + nFees;
 }
 
-static const int64_t nTargetTimespan = 4 * 60 * 60; // old retarget (4hrs)
-static const int64_t nTargetTimespanNEW = 60 ; // Coinyecoin: every 1 minute
-static const int64_t nTargetSpacing = 60; // Coinyecoin: 1 minutes
+static const int64_t nTargetTimespan = 12 * 60 * 60; // CoinyeCoin: every 12 hours
+static const int64_t nTargetTimespanNEW = 90 ; // Coinyecoin: every 1 minute
+static const int64_t nTargetSpacing = 90; // Coinyecoin: 1 minutes
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing;
 
 //
