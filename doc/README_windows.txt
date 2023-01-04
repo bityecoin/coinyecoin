@@ -1,15 +1,5 @@
-Coinyecoin 1.5.0
-
-Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2011-2013 Litecoin Developers
-Copyright (c) 2013-2014 Coinyecoin Developers
-
-Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
-This product includes software developed by the OpenSSL Project for use in
-the OpenSSL Toolkit (http://www.openssl.org/).  This product includes
-cryptographic software written by Eric Young (eay@cryptsoft.com).
-
+Coinyecoin Core 0.14.2
+=====================
 
 Intro
 -----
@@ -23,8 +13,11 @@ Setup
 -----
 Unpack the files into a directory and run coinyecoin-qt.exe.
 
-coinyecoin-Qt is the original coinyecoin client and it builds the backbone of the network.
-However, it downloads and stores the entire history of coinyecoin transactions;
+Coinyecoin Core is the original Coinyecoin client and it builds the backbone of the network.
+However, it downloads and stores the entire history of Coinyecoin transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
 
+See the Coinyecoin wiki at:
+  https://www.reddit.com/r/coinyecoin/wiki/coinyecoincoreguide
+for more help and information.

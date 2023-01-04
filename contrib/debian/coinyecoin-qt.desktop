@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Coinyecoin Core
+Comment=Connect to the Coinyecoin P2P Network
+Comment[de]=Verbinde mit dem Coinyecoin peer-to-peer Netzwerk
+Comment[fr]=Coinyecoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Coinyecoin, eşten eşe kriptografik sanal para birimi
+Exec=coinyecoin-qt %u
+Terminal=false
+Type=Application
+Icon=coinyecoin128
+MimeType=x-scheme-handler/coinyecoin;
+Categories=Office;Finance;

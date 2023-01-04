@@ -1,167 +1,100 @@
-Mac OS X coinyecoind build instructions
+Mac OS X Build Instructions and Notes
 ====================================
-
-Authors
--------
-
-* Laszlo Hanyecz <solar@heliacal.net>
-* Douglas Huff <dhuff@jrbobdobbs.org>
-* Colin Dean <cad@cad.cx>
-* Gavin Andresen <gavinandresen@gmail.com>
-* Alan Westbrook
-
-License
--------
-
-Copyright (c) 2009-2012 Bitcoin Developers
-
-Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-This product includes software developed by the OpenSSL Project for use in
-the OpenSSL Toolkit (http://www.openssl.org/).
-
-This product includes cryptographic software written by
-Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.
-
-Notes
------
-
-See `doc/readme-qt.rst` for instructions on building Coinyecoin-Qt, the
-graphical user interface.
-
-Tested on OS X 10.6 through 10.9 on Intel processors only. PPC is not
-supported because it is big-endian.
-
-All of the commands should be executed in a Terminal application. The
-built-in one is located in `/Applications/Utilities`.
-
-Much of this may be outdated for Coinyecoin.
+The commands in this guide should be executed in a Terminal application.
+The built-in one is located in `/Applications/Utilities/Terminal.app`.
 
 Preparation
 -----------
+Install the OS X command line tools:
 
-You need to install XCode with all the options checked so that the compiler
-and everything is available in /usr not just /Developer. XCode should be
-available on your OS X installation media, but if not, you can get the
-current version from https://developer.apple.com/xcode/. If you install
-Xcode 4.3 or later, you'll need to install its command line tools. This can
-be done in `Xcode > Preferences > Downloads > Components` and generally must
-be re-done or updated every time Xcode is updated.
+`xcode-select --install`
 
-There's an assumption that you already have `git` installed, as well. If
-not, it's the path of least resistance to install [Github for Mac](https://mac.github.com/)
-(OS X 10.7+) or
-[Git for OS X](https://code.google.com/p/git-osx-installer/). It is also
-available via Homebrew or MacPorts.
+When the popup appears, click `Install`.
 
-You will also need to install [Homebrew](http://mxcl.github.io/homebrew/)
-or [MacPorts](https://www.macports.org/) in order to install library
-dependencies. It's largely a religious decision which to choose, but, as of
-December 2012, MacPorts is a little easier because you can just install the
-dependencies immediately - no other work required. If you're unsure, read
-the instructions through first in order to assess what you want to do.
-Homebrew is a little more popular among those newer to OS X.
+Then install [Homebrew](https://brew.sh).
 
-The installation of the actual dependencies is covered in the Instructions
-sections below.
-
-Instructions: MacPorts
+Dependencies
 ----------------------
 
-### Install dependencies
+    brew install automake libtool boost --c++11 miniupnpc openssl pkg-config protobuf --c++11 qt5 libevent
+    brew install berkeley-db # You need to make sure you install a version >= 5.1.29, but as close to 5.1.29 as possible. Check the homebrew docs to find out how to install older versions.
 
-Installing the dependencies using MacPorts is very straightforward.
+If you want to build the disk image with `make deploy` (.dmg / optional), you need RSVG
 
-    sudo port install boost db48@+no_java openssl miniupnpc
+    brew install librsvg
 
-### Building `coinyecoind`
+NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-1. Clone the github tree to get the source code and go into the directory.
-
-        git clone git@github.com:coinyecoin-project/coinyecoin.git coinyecoin
-        cd coinyecoin
-
-2.  Build coinyecoind:
-
-        cd src
-        make -f makefile.osx
-
-3.  It is a good idea to build and run the unit tests, too:
-
-        make -f makefile.osx test
-
-Instructions: HomeBrew
-----------------------
-
-#### Install dependencies using Homebrew
-
-        brew install boost miniupnpc openssl berkeley-db
-
-Note: After you have installed the dependencies, you should check that the Brew installed version of OpenSSL is the one available for compilation. You can check this by typing
-
-        openssl version
-
-into Terminal. You should see OpenSSL 1.0.1e 11 Feb 2013.
-
-If not, you can ensure that the Brew OpenSSL is correctly linked by running
-
-        brew link openssl --force
-
-Rerunning "openssl version" should now return the correct version.
-
-For boost in coinyecoin, there are some ‘fun’ things you have to do:
-
- * download the latest boost from source
-
-        http://www.boost.org/users/download/
-
- * Build the boost libs with special flags because ... REASONS!
-
-        ./bootstrap.sh
-        ./b2 --toolset=clang cxxflags="-stdlib=libstdc++" linkflags="-stdlib=libstdc++"   variant=release link=static threading=multi runtime-link=static --build-dir=build   --build-type=minimal stage --with-program_options --with-system --with-filesystem   --with-chrono --with-thread
-
- * link the statics to /usr/local/lib/
- * make sure the headers for boost are in /usr/local/include/boost or linked from there.
-
-### Building `coinyecoind`
-
-1. Clone the github tree to get the source code and go into the directory.
-
-        git clone git@github.com:coinyecoin/coinyecoin.git coinyecoin
-        cd coinyecoin
-
-2.  Build coinyecoind:
-
-        cd src
-        make -f makefile.osx
-
-3.  It is a good idea to build and run the unit tests, too:
-
-        make -f makefile.osx test
-
-Creating a release build
+Build Coinyecoin Core
 ------------------------
 
-    make -f makefile.osx RELEASE=1
+1. Clone the coinyecoin source code and cd into `coinyecoin`
+
+        git clone https://github.com/coinyecoin/coinyecoin
+        cd coinyecoin
+
+2.  Build coinyecoin:
+
+    Configure and build the headless coinyecoin binaries as well as the GUI (if Qt is found).
+
+    You can disable the GUI build by passing `--without-gui` to configure.
+
+        ./autogen.sh
+        ./configure
+        make
+
+3.  It is recommended to build and run the unit tests:
+
+        make check
+
+4.  You can also create a .dmg that contains the .app bundle (optional):
+
+        make deploy
 
 Running
 -------
 
-It's now available at `./coinyecoind`, provided that you are still in the `src`
-directory. We have to first create the RPC configuration file, though.
+Coinyecoin Core is now available at `./src/coinyecoind`
 
-Run `./coinyecoind` to get the filename where it should be put, or just try these
-commands:
+Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=coinyecoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/coinyecoin/coinyecoin.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/coinyecoin/coinyecoin.conf"
+    echo -e "rpcuser=coinyecoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Coinyecoin/coinyecoin.conf"
 
-When next you run it, it will start downloading the blockchain, but it won't
-output anything while it's doing this. This process may take several hours.
+    chmod 600 "/Users/${USER}/Library/Application Support/Coinyecoin/coinyecoin.conf"
+
+The first time you run coinyecoind, it will start downloading the blockchain. This process could take several hours.
+
+You can monitor the download process by looking at the debug.log file:
+
+    tail -f $HOME/Library/Application\ Support/Coinyecoin/debug.log
 
 Other commands:
+-------
 
-    ./coinyecoind --help  # for a list of command-line options.
-    ./coinyecoind -daemon # to start the coinyecoin daemon.
-    ./coinyecoind help    # When the daemon is running, to get a list of RPC commands
+    ./src/coinyecoind -daemon # Starts the coinyecoin daemon.
+    ./src/coinyecoin-cli --help # Outputs a list of command-line options.
+    ./src/coinyecoin-cli help # Outputs a list of RPC commands when the daemon is running.
+
+Using Qt Creator as IDE
+------------------------
+You can use Qt Creator as an IDE, for coinyecoin development.
+Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
+Uncheck everything except Qt Creator during the installation process.
+
+1. Make sure you installed everything through Homebrew mentioned above
+2. Do a proper ./configure --enable-debug
+3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
+4. Enter "coinyecoin-qt" as project name, enter src/qt as location
+5. Leave the file selection as it is
+6. Confirm the "summary page"
+7. In the "Projects" tab select "Manage Kits..."
+8. Select the default "Desktop" kit and select "Clang (x86 64bit in /usr/bin)" as compiler
+9. Select LLDB as debugger (you might need to set the path to your installation)
+10. Start debugging with Qt Creator
+
+Notes
+-----
+
+* Tested on OS X 10.8 through 10.12 on 64-bit Intel processors only.
+
+* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/coinyecoin/coinyecoin/issues/7714)
