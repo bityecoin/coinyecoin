@@ -34,13 +34,11 @@ not straightforward.
 
 ## Very Much Frequently Asked Questions
 
-### How much coye can exist? – So many puppies!
-Early 2015 (approximately a year and a half after release) there will be approximately 100,000,000,000 coins.
-Each subsequent block will grant 10,000 coins to encourage miners to continue to secure the network and make up for lost wallets on hard drives/phones/lost encryption passwords/etc.
+### How much coye can exist?
+133,333,333,333 is the max, and it is 99.9% mined! There are discussions about changing this, but they are heated quickly.
 
 ### How to get coye? – To the moon!
-Coinyecoin uses a simplified variant of the scrypt key derivation function as its proof of work with a target time of one minute per block and difficulty readjustment after every block. The block rewards are fixed and halve every 100,000 blocks. Starting with the 600,000th block, a permanent reward of 10,000 Coinyecoin per block will be paid. 
-
+Tell all your gay fish friends.
 
 ### Wow plz make coinyecoind/coinyecoin-cli/coinyecoin-qt
 
