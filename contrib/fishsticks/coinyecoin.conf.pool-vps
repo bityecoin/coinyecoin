@@ -1,0 +1,17 @@
+# Pool VPS profile: small-RAM safe. Copy to /home/coinye/.coinyecoin/coinyecoin.conf
+server=1
+daemon=1
+listen=1
+rpcuser=coinyepool
+rpcpassword=CHANGE_ME_LONG_RANDOM
+rpcallowip=127.0.0.1
+rpcport=22555
+# memory discipline (this is what was crashing the VPS)
+dbcache=100
+maxmempool=100
+par=1
+maxconnections=24
+# never let a stale tip block getblocktemplate/getauxblock
+allowstalemining=1
+# your other nodes
+#addnode=HOME_NODE_IP

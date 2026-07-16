@@ -1,0 +1,25 @@
+# Windows wallet build for gitlab.1aardvark.us runners.
+stages: [build]
+
+windows-x64:
+  stage: build
+  image: ubuntu:24.04
+  variables:
+    DEBIAN_FRONTEND: noninteractive
+  script:
+    - apt-get update && apt-get install -y build-essential autoconf automake libtool pkg-config bsdmainutils curl git g++-mingw-w64-x86-64 zip
+    - update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
+    - update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
+    - make -C depends HOST=x86_64-w64-mingw32 -j"$(nproc)"
+    - ./autogen.sh
+    - CONFIG_SITE="$PWD/depends/x86_64-w64-mingw32/share/config.site" ./configure --prefix=/ --disable-tests --disable-bench
+    - make -j"$(nproc)"
+    - mkdir -p release && cp src/coinyecoind.exe src/coinyecoin-cli.exe src/qt/coinyecoin-qt.exe release/
+    - cd release && zip coinyecoin-2.3.0-fishsticks-win64.zip *.exe
+  artifacts:
+    paths: [release/coinyecoin-2.3.0-fishsticks-win64.zip]
+    expire_in: 30 days
+  cache:
+    key: depends-mingw64
+    paths: [depends/built, depends/sources]
+  timeout: 3h

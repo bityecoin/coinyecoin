@@ -1,0 +1,22 @@
+[Unit]
+Description=Coinyecoin Core daemon (2.3.0-fishsticks)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+User=coinye
+Group=coinye
+ExecStart=/usr/local/bin/coinyecoind -daemon -conf=/home/coinye/.coinyecoin/coinyecoin.conf -datadir=/home/coinye/.coinyecoin
+ExecStop=/usr/local/bin/coinyecoin-cli -conf=/home/coinye/.coinyecoin/coinyecoin.conf stop
+PIDFile=/home/coinye/.coinyecoin/coinyecoind.pid
+Restart=on-failure
+RestartSec=30
+TimeoutStopSec=120
+OOMScoreAdjust=-500
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
