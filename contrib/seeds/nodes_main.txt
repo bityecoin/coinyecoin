@@ -1,0 +1,9 @@
+# List of fixed seed nodes for mainnet
+# Regenerate chainparamsseeds.h with: python3 generate-seeds.py . > ../../src/chainparamsseeds.h
+# (or splice the pnSeed6_main[] block below)
+
+174.172.150.176:41338
+71.163.61.185:41338
+77.163.181.92:41338
+85.19.25.38:41338
+134.122.38.91:41338

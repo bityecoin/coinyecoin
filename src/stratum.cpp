@@ -760,10 +760,13 @@ static void StratumAcceptThread()
         char pchIp[64];
         memset(pchIp, 0, sizeof(pchIp));
         strcpy(pchIp, "unknown");
-        if (saClient.ss_family == AF_INET) {
-            inet_ntop(AF_INET, &((struct sockaddr_in*)&saClient)->sin_addr, pchIp, sizeof(pchIp) - 1);
-        } else if (saClient.ss_family == AF_INET6) {
-            inet_ntop(AF_INET6, &((struct sockaddr_in6*)&saClient)->sin6_addr, pchIp, sizeof(pchIp) - 1);
+        {
+            // Portable across POSIX and MinGW (avoids Vista-gated inet_ntop).
+            CService servClient;
+            if (servClient.SetSockAddr((const struct sockaddr*)&saClient)) {
+                std::string strClientIp = servClient.ToStringIP();
+                strncpy(pchIp, strClientIp.c_str(), sizeof(pchIp) - 1);
+            }
         }
 
         boost::shared_ptr<StratumClient> client(new StratumClient());
@@ -883,8 +886,13 @@ bool StartStratumServer()
     memset(&sa, 0, sizeof(sa));
     sa.sin_family = AF_INET;
     sa.sin_port = htons((uint16_t)nPort);
-    if (inet_pton(AF_INET, strBind.c_str(), &sa.sin_addr) != 1)
-        sa.sin_addr.s_addr = INADDR_ANY;
+    {
+        // Portable across POSIX and MinGW (avoids Vista-gated inet_pton).
+        CNetAddr bindAddr;
+        if (!(LookupHost(strBind.c_str(), bindAddr, false) &&
+              bindAddr.IsIPv4() && bindAddr.GetInAddr(&sa.sin_addr)))
+            sa.sin_addr.s_addr = INADDR_ANY;
+    }
 
     if (bind(g_listenSocket, (struct sockaddr*)&sa, sizeof(sa)) != 0) {
         LogPrintf("stratum: ERROR could not bind %s:%d\n", strBind, nPort);
