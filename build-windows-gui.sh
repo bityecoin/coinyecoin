@@ -24,8 +24,31 @@ set -euo pipefail
 [[ -f configure.ac ]] || { echo "ERROR: run from the coinyecoin source root." >&2; exit 1; }
 
 HOST=x86_64-w64-mingw32
-JOBS="$(nproc)"
+# Leave one core free so sshd / your shell stay responsive during the build.
+# (On a 4-core box, -j$(nproc) pegs all 4 and the machine feels frozen even
+#  though it is healthy.) Also cap by RAM (~2GB per heavy C++ unit) for
+#  low-memory hosts; on a big-RAM box the core rule dominates.
+CORES="$(nproc)"
+JOBS="$CORES"; [ "$JOBS" -gt 1 ] && JOBS=$((JOBS - 1))
+MEM_GB="$(awk '/MemTotal/{printf "%d",$2/1024/1024}' /proc/meminfo 2>/dev/null || echo 4)"
+MEM_JOBS=$(( MEM_GB / 2 )); [ "$MEM_JOBS" -lt 1 ] && MEM_JOBS=1
+[ "$JOBS" -gt "$MEM_JOBS" ] && JOBS="$MEM_JOBS"
+# Run the compilers at low priority so interactive work always wins the CPU.
+NICE="nice -n 15"
+command -v ionice >/dev/null 2>&1 && NICE="ionice -c3 $NICE"
+echo "==> building with -j$JOBS ($CORES cores, ~${MEM_GB}GB RAM), low priority"
 export DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC
+
+# Persist the compiler cache on the mounted source volume ($PWD == /src, which is
+# your host directory) so re-runs reuse it. Without this the cache sits in the
+# --rm container's /root/.ccache and is destroyed on exit, forcing a full cold
+# recompile of the whole tree EVERY run. With it, the first run is slow and
+# every run after only recompiles what actually changed (minutes, not tens).
+export CCACHE_DIR="${CCACHE_DIR:-$PWD/.ccache}"
+export CCACHE_COMPILERCHECK=content
+export CCACHE_MAXSIZE=8G
+mkdir -p "$CCACHE_DIR"
+echo "==> ccache dir: $CCACHE_DIR (persists across runs)"
 
 echo "==> [1/6] Installing toolchain + NSIS (installer must be present BEFORE configure)..."
 apt-get update -qq
@@ -79,7 +102,7 @@ if os.path.exists(p):
 PY
 
 echo "==> [4/6] Building depends WITH Qt (first run is the slow part)..."
-make -C depends HOST="$HOST" -j"$JOBS"
+$NICE make -C depends HOST="$HOST" -j"$JOBS"
 
 echo "==> [5/6] autogen + configure (GUI enabled) + build..."
 # scrub any stale win32 configure output from a previous attempt on the mounted tree
@@ -93,14 +116,17 @@ CONFIG_SITE="$PWD/depends/$HOST/share/config.site" \
         --disable-tests \
         --disable-bench
 
-make -j"$JOBS"
+$NICE make -j"$JOBS"
 
 echo "==> [6/6] Building the Windows installer (make deploy -> makensis)..."
-make deploy
+$NICE make deploy
 
 echo
 echo "==> BUILD COMPLETE"
 ls -la src/qt/coinyecoin-qt.exe src/coinyecoind.exe src/coinyecoin-cli.exe 2>/dev/null || true
 ls -la ./*-win64-setup.exe 2>/dev/null || true
+echo
+CCACHE_BIN="depends/$HOST/native/bin/ccache"
+[[ -x "$CCACHE_BIN" ]] && { echo "==> ccache stats (next run reuses this):"; "$CCACHE_BIN" -s 2>/dev/null | grep -iE "hit|miss|cache size" || true; }
 echo
 echo "The GUI wallet has a new 'Mining' tab (built-in CPU scrypt solo miner)."

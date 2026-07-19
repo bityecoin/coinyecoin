@@ -119,14 +119,34 @@
      </property>
      <layout class="QGridLayout" name="externalLayout">
       <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="stratumStatusLabel">
-        <property name="text">
-         <string>Stratum server: checking...</string>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="stratumStatusRow">
+        <item>
+         <widget class="QLabel" name="stratumIndicator">
+          <property name="minimumSize"><size><width>14</width><height>14</height></size></property>
+          <property name="maximumSize"><size><width>14</width><height>14</height></size></property>
+          <property name="styleSheet"><string notr="true">background-color:#c0392b; border-radius:7px;</string></property>
+          <property name="text"><string/></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="stratumStatusLabel">
+          <property name="text">
+           <string>Stratum server: checking...</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="toggleStratumButton">
+          <property name="text"><string>Start Stratum server</string></property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="urlLocalTextLabel">

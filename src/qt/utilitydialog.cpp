@@ -235,6 +235,35 @@ PaperWalletDialog::~PaperWalletDialog()
     delete ui;
 }
 
+// Fishsticks: render a (space-less) address/key hash into a fixed box by
+// breaking it into fixed-width lines and shrinking a monospace font to fit.
+static void setWrappedHash(QLabel* lbl, const QString& text)
+{
+    for (int px = 18; px >= 6; --px) {
+        QFont f("Monospace");
+        f.setBold(true);
+        f.setStyleHint(QFont::TypeWriter);
+        f.setPixelSize(px);
+        QFontMetrics fm(f);
+        int cw = fm.width(QChar('0'));
+        if (cw <= 0) cw = 1;
+        int perLine = (lbl->width() - 4) / cw;
+        if (perLine < 1) perLine = 1;
+        int nLines = (text.length() + perLine - 1) / perLine;
+        if (nLines * fm.height() <= lbl->height() || px == 6) {
+            QString out;
+            for (int i = 0; i < text.length(); i += perLine) {
+                if (!out.isEmpty()) out += QChar('\n');
+                out += text.mid(i, perLine);
+            }
+            lbl->setFont(f);
+            lbl->setText(out);
+            lbl->setAlignment(Qt::AlignCenter);
+            return;
+        }
+    }
+}
+
 void PaperWalletDialog::on_getNewAddress_clicked()
 {
     // Create a new private key
@@ -296,51 +325,11 @@ void PaperWalletDialog::on_getNewAddress_clicked()
 #endif
 
     // Populate the Texts
-    ui->addressText->setText(myAddress.c_str());
-    ui->privateKeyText->setText(tr(myPrivKey.c_str()));
+    setWrappedHash(ui->addressText, QString::fromStdString(myAddress));
+    setWrappedHash(ui->privateKeyText, QString::fromStdString(myPrivKey));
 
     ui->publicKey->setHtml(myPubKey.c_str());
 
-    // Update the fonts to fit the height of the wallet.
-    // This should only really trigger the first time since the font size persists.
-    double paperHeight = (double)ui->paperTemplate->height();
-    double maxTextWidth = paperHeight * 0.99;
-    double minTextWidth = paperHeight * 0.95;
-    int pixelSizeStep = 1;
-
-    int addressTextLength = ui->addressText->fontMetrics().boundingRect(ui->addressText->text()).width();
-    QFont font = ui->addressText->font();
-    for (int i = 0; i < PAPER_WALLET_READJUST_LIMIT; i++) {
-        if (addressTextLength < minTextWidth) {
-            font.setPixelSize(font.pixelSize() + pixelSizeStep);
-            ui->addressText->setFont(font);
-            addressTextLength = ui->addressText->fontMetrics().boundingRect(ui->addressText->text()).width();
-        } else {
-            break;
-        }
-    }
-    if (addressTextLength > maxTextWidth) {
-        font.setPixelSize(font.pixelSize() - pixelSizeStep);
-        ui->addressText->setFont(font);
-        addressTextLength = ui->addressText->fontMetrics().boundingRect(ui->addressText->text()).width();
-    }
-
-    int privateKeyTextLength = ui->privateKeyText->fontMetrics().boundingRect(ui->privateKeyText->text()).width();
-    font = ui->privateKeyText->font();
-    for (int i = 0; i < PAPER_WALLET_READJUST_LIMIT; i++) {
-        if (privateKeyTextLength < minTextWidth) {
-            font.setPixelSize(font.pixelSize() + pixelSizeStep);
-            ui->privateKeyText->setFont(font);
-            privateKeyTextLength = ui->privateKeyText->fontMetrics().boundingRect(ui->privateKeyText->text()).width();
-        } else {
-            break;
-        }
-    }
-    if (privateKeyTextLength > maxTextWidth) {
-        font.setPixelSize(font.pixelSize() - pixelSizeStep);
-        ui->privateKeyText->setFont(font);
-        privateKeyTextLength = ui->privateKeyText->fontMetrics().boundingRect(ui->privateKeyText->text()).width();
-    }
 }
 
 void PaperWalletDialog::on_printButton_clicked()

@@ -103,4 +103,7 @@
         <file alias="ComicNeue-Regular">res/fonts/ComicNeue-Regular.ttf</file>
         <file alias="ComicNeue-Regular-Oblique">res/fonts/ComicNeue-Regular-Oblique.ttf</file>
     </qresource>
+    <qresource prefix="/css">
+        <file alias="theme">res/css/fishsticks.qss</file>
+    </qresource>
 </RCC>

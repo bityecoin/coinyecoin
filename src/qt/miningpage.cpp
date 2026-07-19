@@ -17,6 +17,7 @@
 #include <boost/thread.hpp>
 
 #include <QModelIndex>
+#include <QMessageBox>
 #include <QTimer>
 
 MiningPage::MiningPage(const PlatformStyle *_platformStyle, QWidget *parent) :
@@ -84,6 +85,19 @@ void MiningPage::on_toggleMiningButton_clicked()
     updateUI();
 }
 
+void MiningPage::on_toggleStratumButton_clicked()
+{
+    if (StratumServerRunning()) {
+        StopStratumServer();
+    } else if (!StartStratumServer()) {
+        QMessageBox::warning(this, tr("Stratum server"),
+            tr("Could not start the stratum server. The port may already be in use, or no "
+               "payout address is available yet (open or unlock a wallet, or set "
+               "-stratumaddress). See debug.log for details."));
+    }
+    updateUI();
+}
+
 
 QString MiningPage::firstReceiveAddress() const
 {
@@ -148,20 +162,25 @@ void MiningPage::updateUI()
         ui->hashRateLabel->setText("0.00 H/s");
     }
 
-    // External-miner (stratum) live status.
+    // External-miner (stratum) live status + indicator + toggle button.
     {
+        bool running = StratumServerRunning();
         UniValue info = GetStratumInfo();
-        bool enabled = info.isObject() && info.exists("enabled") && info["enabled"].isBool()
-                       && info["enabled"].get_bool();
         int clients = (info.isObject() && info.exists("clients") && info["clients"].isNum())
                       ? info["clients"].get_int() : 0;
         int port = (info.isObject() && info.exists("port") && info["port"].isNum())
                    ? info["port"].get_int() : DEFAULT_STRATUM_PORT;
-        if (enabled)
+
+        ui->stratumIndicator->setStyleSheet(
+            running ? "background-color:#2ecc71; border-radius:7px;"     // green = running
+                    : "background-color:#c0392b; border-radius:7px;");   // red = stopped
+        ui->toggleStratumButton->setText(running ? tr("Stop Stratum server")
+                                                  : tr("Start Stratum server"));
+        if (running)
             ui->stratumStatusLabel->setText(
                 tr("Stratum server: ON — listening on port %1, %2 client(s) connected.").arg(port).arg(clients));
         else
             ui->stratumStatusLabel->setText(
-                tr("Stratum server: OFF — add \"stratum=1\" to coinyecoin.conf (or start with -stratum=1) and restart the wallet to let an external miner connect."));
+                tr("Stratum server: OFF — click \"Start Stratum server\" (or set stratum=1 in coinyecoin.conf) to let an external miner connect."));
     }
 }

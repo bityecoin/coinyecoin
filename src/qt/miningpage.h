@@ -36,6 +36,7 @@ public:
 
 private Q_SLOTS:
     void on_toggleMiningButton_clicked();
+    void on_toggleStratumButton_clicked();
     void updateUI();
 
 private:

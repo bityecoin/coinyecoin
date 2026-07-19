@@ -42,6 +42,7 @@
 #include <boost/thread.hpp>
 
 #include <QApplication>
+#include <QFile>
 #include <QDebug>
 #include <QLibraryInfo>
 #include <QLocale>
@@ -551,6 +552,15 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(bitcoin_locale);
 
     BitcoinApplication app(argc, argv);
+
+    // Fishsticks: apply the dark-navy + Coinye-gold theme.
+    {
+        QFile qss(":/css/theme");
+        if (qss.open(QFile::ReadOnly | QFile::Text)) {
+            app.setStyleSheet(QString::fromUtf8(qss.readAll()));
+            qss.close();
+        }
+    }
 #if QT_VERSION > 0x050100
     // Generate high-dpi pixmaps
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
