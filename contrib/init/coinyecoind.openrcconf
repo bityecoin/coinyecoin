@@ -1,0 +1,33 @@
+# /etc/conf.d/coinyecoind: config file for /etc/init.d/coinyecoind
+
+# Config file location
+#COYECOIND_CONFIGFILE="/etc/coinyecoin/coinyecoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $COYECOIND_USER)
+#COYECOIND_PIDDIR="/var/run/coinyecoind"
+
+# What filename to give the pidfile
+#COYECOIND_PIDFILE="${COYECOIND_PIDDIR}/coinyecoind.pid"
+
+# Where to write coinyecoind data (be mindful that the blockchain is large)
+#COYECOIND_DATADIR="/var/lib/coinyecoind"
+
+# User and group to own coinyecoind process
+#COYECOIND_USER="coinyecoin"
+#COYECOIND_GROUP="coinyecoin"
+
+# Path to coinyecoind executable
+#COYECOIND_BIN="/usr/bin/coinyecoind"
+
+# Nice value to run coinyecoind under
+#COYECOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+COYECOIND_OPTS="-disablewallet"
+
+# The timeout in seconds OpenRC will wait for coinyecoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+COYECOIND_SIGTERM_TIMEOUT=60

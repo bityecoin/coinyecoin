@@ -1,0 +1,19 @@
+# Home wallet, solo mining profile. Copy to ~/.coinyecoin/coinyecoin.conf
+server=1
+daemon=1
+listen=1
+rpcuser=coinye
+rpcpassword=CHANGE_ME
+rpcallowip=127.0.0.1
+# --- built-in stratum: point ccminer / cpuminer / Antminer at port 3333 ---
+stratum=1
+stratumbind=0.0.0.0
+stratumport=3333
+#stratumaddress=YOUR_COYE_ADDRESS
+stratumdiff=16
+stratumvardiff=1
+# --- optional built-in CPU miner ---
+#gen=1
+#genproclimit=2
+#miningaddress=YOUR_COYE_ADDRESS
+allowstalemining=1
