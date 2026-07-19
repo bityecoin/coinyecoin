@@ -161,6 +161,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0xc65357a14d75ef82dbfab11c371ad60e1c8af712da8e06b64a332f97b88bcc19"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
+        vSeeds.push_back(CDNSSeedData("coinye.info", "coinye.info", true));
         vSeeds.push_back(CDNSSeedData("node2.coinye.info", "node.coinye.info", true));
         vSeeds.push_back(CDNSSeedData("seed2.coinye.info", "seed.coinye.info"));
 
@@ -170,9 +171,10 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0xfa)(0xca)(0xfd).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0xfa)(0xc3)(0x98).convert_to_container<std::vector<unsigned char> >();
 
-        //TODO: fix this for coinyecoin -- plddr
-        //vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
-        vFixedSeeds.clear();
+        // Fishsticks: fixed seeds re-enabled so a fresh wallet can bootstrap
+        // even if the DNS seeds are unreachable. Regenerate the list from
+        // contrib/seeds/nodes_main.txt via contrib/seeds/generate-seeds.py.
+        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;

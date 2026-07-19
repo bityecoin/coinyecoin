@@ -43,15 +43,15 @@ QRImageWidget::QRImageWidget(QWidget *parent):
 
 QImage QRImageWidget::exportImage()
 {
-    const QPixmap pm = pixmap(Qt::ReturnByValue);
-    if(pm.isNull())
+    const QPixmap *ppm = pixmap();
+    if(!ppm || ppm->isNull())
         return QImage();
-    return pm.toImage();
+    return ppm->toImage();
 }
 
 void QRImageWidget::mousePressEvent(QMouseEvent *event)
 {
-    if(event->button() == Qt::LeftButton && !pixmap(Qt::ReturnByValue).isNull())
+    if(event->button() == Qt::LeftButton && pixmap() && !pixmap()->isNull())
     {
         event->accept();
         QMimeData *mimeData = new QMimeData;
@@ -67,7 +67,7 @@ void QRImageWidget::mousePressEvent(QMouseEvent *event)
 
 void QRImageWidget::saveImage()
 {
-    if(pixmap(Qt::ReturnByValue).isNull())
+    if(!pixmap() || pixmap()->isNull())
         return;
     QString fn = GUIUtil::getSaveFileName(this, tr("Save QR Code"), QString(), tr("PNG Image (*.png)"), NULL);
     if (!fn.isEmpty())
@@ -78,14 +78,14 @@ void QRImageWidget::saveImage()
 
 void QRImageWidget::copyImage()
 {
-    if(pixmap(Qt::ReturnByValue).isNull())
+    if(!pixmap() || pixmap()->isNull())
         return;
     QApplication::clipboard()->setImage(exportImage());
 }
 
 void QRImageWidget::contextMenuEvent(QContextMenuEvent *event)
 {
-    if(pixmap(Qt::ReturnByValue).isNull())
+    if(!pixmap() || pixmap()->isNull())
         return;
     contextMenu->exec(event->globalPos());
 }
