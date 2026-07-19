@@ -104,6 +104,8 @@ public Q_SLOTS:
     void unlockWallet();
     /** Open the print paper wallets dialog **/
     void printPaperWallets();
+    /** Open the import paper wallet / private key dialog **/
+    void importPaperWallet();
 
     /** Show used sending addresses */
     void usedSendingAddresses();

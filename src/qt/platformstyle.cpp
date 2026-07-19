@@ -23,7 +23,7 @@ static const struct {
     const bool useExtraSpacing;
 } platform_styles[] = {
     {"macosx", false, false, true},
-    {"windows", true, false, false},
+    {"windows", true, true, false},
     /* Other: linux, unix, ... */
     {"other", true, false, false}
 };
@@ -96,6 +96,13 @@ PlatformStyle::PlatformStyle(const QString &_name, bool _imagesOnButtons, bool _
     }
     // Determine text color
     textColor = QColor(QApplication::palette().color(QPalette::WindowText));
+
+    // Fishsticks dark theme: force light icon + text colors so the toolbar and
+    // menu icons are visible on the dark background. (A Qt style sheet does not
+    // change QApplication::palette(), so the palette-derived colors above would
+    // otherwise stay dark.)
+    singleColor = QColor(0xd6, 0xe2, 0xf5);
+    textColor   = QColor(0xd6, 0xe2, 0xf5);
 }
 
 QImage PlatformStyle::SingleColorImage(const QString& filename) const

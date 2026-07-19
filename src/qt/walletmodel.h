@@ -167,6 +167,10 @@ public:
     // Wallet backup
     bool backupWallet(const QString &filename);
 
+    // Import a WIF private key (paper wallet). Returns true on success; sets
+    // errorOut with a human-readable message otherwise (or a benign note).
+    bool importPrivateKey(const QString &wif, const QString &label, QString &errorOut);
+
     // RAI object for unlocking wallet, returned by requestUnlock()
     class UnlockContext
     {

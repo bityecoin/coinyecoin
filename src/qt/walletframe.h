@@ -88,6 +88,7 @@ public Q_SLOTS:
     void unlockWallet();
 
     void printPaperWallets();
+    void importPaperWallet();
 
     /** Show used sending addresses */
     void usedSendingAddresses();

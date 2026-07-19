@@ -455,6 +455,52 @@ bool WalletModel::backupWallet(const QString &filename)
     return wallet->BackupWallet(filename.toLocal8Bit().data());
 }
 
+bool WalletModel::importPrivateKey(const QString &wif, const QString &label, QString &errorOut)
+{
+    if(!wallet) { errorOut = tr("No wallet is loaded."); return false; }
+
+    CBitcoinSecret vchSecret;
+    if(!vchSecret.SetString(wif.trimmed().toStdString())) {
+        errorOut = tr("That doesn't look like a valid private key. Check for typos or extra spaces.");
+        return false;
+    }
+    CKey key = vchSecret.GetKey();
+    if(!key.IsValid()) { errorOut = tr("Invalid private key (out of range)."); return false; }
+    CPubKey pubkey = key.GetPubKey();
+    if(!key.VerifyPubKey(pubkey)) { errorOut = tr("Private key failed verification."); return false; }
+    CKeyID vchAddress = pubkey.GetID();
+
+    {
+        LOCK2(cs_main, wallet->cs_wallet);
+
+        if(wallet->IsLocked()) {
+            errorOut = tr("Your wallet is locked. Unlock it first (Settings menu), then import.");
+            return false;
+        }
+
+        wallet->MarkDirty();
+        wallet->SetAddressBook(vchAddress, label.toStdString(), "receive");
+
+        // Already imported — not an error, just let the user know.
+        if(wallet->HaveKey(vchAddress)) {
+            errorOut = tr("This key is already in your wallet — nothing to do.");
+            return true;
+        }
+
+        wallet->mapKeyMetadata[vchAddress].nCreateTime = 1;
+
+        if(!wallet->AddKeyPubKey(key, pubkey)) {
+            errorOut = tr("Error adding key to wallet.");
+            return false;
+        }
+        wallet->UpdateTimeFirstKey(1);
+
+        // A freshly imported key needs a full rescan so its funds/history appear.
+        wallet->ScanForWalletTransactions(chainActive.Genesis(), true);
+    }
+    return true;
+}
+
 // Handlers for core signals
 static void NotifyKeyStoreStatusChanged(WalletModel *walletmodel, CCryptoKeyStore *wallet)
 {

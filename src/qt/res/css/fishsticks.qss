@@ -22,11 +22,12 @@ QMenuBar {
     color: #e8eef7;
     border-bottom: 1px solid #22375c;
 }
-QMenuBar::item { background: transparent; padding: 6px 12px; }
+QMenuBar::item { background: transparent; color: #e8eef7; padding: 6px 12px; }
 QMenuBar::item:selected { background: #1d2f4f; color: #ffd95e; }
-QMenu { background-color: #14223c; border: 1px solid #2b3f63; padding: 4px; }
-QMenu::item { padding: 6px 24px; border-radius: 4px; }
+QMenu { background-color: #14223c; color: #e8eef7; border: 1px solid #2b3f63; padding: 4px; }
+QMenu::item { color: #e8eef7; padding: 6px 24px; border-radius: 4px; }
 QMenu::item:selected { background: #22375c; color: #ffd95e; }
+QMenu::item:disabled { color: #6b7c99; }
 QMenu::separator { height: 1px; background: #2b3f63; margin: 4px 8px; }
 
 /* ---- the main toolbar (Overview / Send / Receive / Transactions / Mining) ---- */
@@ -147,8 +148,10 @@ QProgressBar::chunk {
 }
 
 /* ---- status bar ---- */
-QStatusBar { background-color: #0b1525; color: #9fb2cf; border-top: 1px solid #22375c; }
-QStatusBar QLabel { color: #9fb2cf; }
+QStatusBar { background-color: #0b1525; color: #d6e2f5; border-top: 1px solid #22375c; }
+QStatusBar QLabel { color: #d6e2f5; }
+QStatusBar QToolButton { color: #d6e2f5; background: transparent; border: none; }
+QStatusBar::item { border: none; }
 
 /* ---- tooltips ---- */
 QToolTip {

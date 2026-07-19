@@ -24,6 +24,8 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QIcon>
+#include <QImage>
+#include <QPixmap>
 #include <QList>
 
 #include <algorithm>
@@ -389,6 +391,29 @@ QString TransactionTableModel::formatTxType(const TransactionRecord *wtx) const
     }
 }
 
+// Fishsticks: recolor a (monochrome) icon to a given color, preserving alpha,
+// so status/mined icons are visible on the dark theme. Colorful icons (the
+// received/sent fish sticks) are left alone by the caller.
+static QIcon colorizeTxIcon(const QIcon &ico, const QColor &c)
+{
+    QIcon out;
+    QList<QSize> sizes = ico.availableSizes();
+    if(sizes.isEmpty())
+        sizes << QSize(16, 16) << QSize(32, 32);
+    Q_FOREACH(const QSize &sz, sizes)
+    {
+        QImage img = ico.pixmap(sz).toImage().convertToFormat(QImage::Format_ARGB32);
+        for(int y = 0; y < img.height(); ++y)
+            for(int x = 0; x < img.width(); ++x)
+            {
+                const QRgb px = img.pixel(x, y);
+                img.setPixel(x, y, qRgba(c.red(), c.green(), c.blue(), qAlpha(px)));
+            }
+        out.addPixmap(QPixmap::fromImage(img));
+    }
+    return out;
+}
+
 QVariant TransactionTableModel::txAddressDecoration(const TransactionRecord *wtx) const
 {
     switch(wtx->type)
@@ -544,7 +569,44 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole:
     {
         QIcon icon = qvariant_cast<QIcon>(index.data(RawDecorationRole));
-        return platformStyle->TextColorIcon(icon);
+        switch(index.column())
+        {
+        case Status:
+        {
+            // confirmation state, colored for visibility on the dark theme
+            QColor c(0xf2, 0xc9, 0x4c); // gold: pending / opening / immature
+            switch(rec->status.status)
+            {
+            case TransactionStatus::Confirmed:
+            case TransactionStatus::Confirming:
+                c = QColor(0x53, 0xd6, 0x8a); break; // green: done / on its way
+            case TransactionStatus::Conflicted:
+            case TransactionStatus::Abandoned:
+                c = QColor(0xe0, 0x6a, 0x64); break; // soft red: problem
+            default: break;
+            }
+            return colorizeTxIcon(icon, c);
+        }
+        case ToAddress:
+            // keep the colorful fish sticks for received/sent; light up the
+            // monochrome mined / send-to-self / other icons so they show.
+            switch(rec->type)
+            {
+            case TransactionRecord::RecvWithAddress:
+            case TransactionRecord::RecvFromOther:
+            case TransactionRecord::SendToAddress:
+            case TransactionRecord::SendToOther:
+                return icon; // original colorful fish stick
+            case TransactionRecord::Generated:
+                return colorizeTxIcon(icon, QColor(0xf2, 0xc9, 0x4c)); // gold pickaxe (mined)
+            default:
+                return colorizeTxIcon(icon, QColor(0xd6, 0xe2, 0xf5)); // light (self / other)
+            }
+        case Watchonly:
+            return colorizeTxIcon(icon, QColor(0xd6, 0xe2, 0xf5));
+        default:
+            return icon;
+        }
     }
     case Qt::DisplayRole:
         switch(index.column())

@@ -37,7 +37,7 @@ public:
     {
         painter->save();
 
-        QIcon icon = qvariant_cast<QIcon>(index.data(TransactionTableModel::RawDecorationRole));
+        QIcon icon = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
         QRect mainRect = option.rect;
         QRect decorationRect(mainRect.topLeft(), QSize(DECORATION_SIZE, DECORATION_SIZE));
         int xspace = DECORATION_SIZE + 8;
@@ -45,7 +45,6 @@ public:
         int halfheight = (mainRect.height() - 2*ypad)/2;
         QRect amountRect(mainRect.left() + xspace, mainRect.top()+ypad, mainRect.width() - xspace, halfheight);
         QRect addressRect(mainRect.left() + xspace, mainRect.top()+ypad+halfheight, mainRect.width() - xspace, halfheight);
-        icon = platformStyle->SingleColorIcon(icon);
         icon.paint(painter, decorationRect);
 
         QDateTime date = index.data(TransactionTableModel::DateRole).toDateTime();

@@ -42,6 +42,13 @@
 #include <QTextTable>
 #include <QTextCursor>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QFormLayout>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QMessageBox>
+#include <QApplication>
+#include <QClipboard>
 #include <QInputDialog>
 
 #ifdef USE_QRCODE
@@ -100,6 +107,14 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent, bool about) :
         ui->aboutMessage->setText(version + "<br><br>" + licenseInfoHTML);
         ui->aboutMessage->setWordWrap(true);
         ui->helpMessage->setVisible(false);
+
+        // Fishsticks dark theme: the About text sat light-on-light and was
+        // unreadable. Give the whole about area a dark background and light text.
+        ui->aboutMessage->setStyleSheet("color:#e8eef7; background:transparent;");
+        ui->scrollArea->setStyleSheet("QScrollArea{background-color:#0e1930; border:none;}");
+        if(ui->scrollArea->viewport())
+            ui->scrollArea->viewport()->setStyleSheet("background-color:#0e1930;");
+        ui->scrollAreaWidgetContents->setStyleSheet("background-color:#0e1930;");
     } else {
         setWindowTitle(tr("Command-line options"));
         QString header = tr("Usage:") + "\n" +
@@ -259,6 +274,7 @@ static void setWrappedHash(QLabel* lbl, const QString& text)
             lbl->setFont(f);
             lbl->setText(out);
             lbl->setAlignment(Qt::AlignCenter);
+            lbl->setStyleSheet("color:#000000; background:transparent;");
             return;
         }
     }
@@ -510,4 +526,95 @@ QWidget *ShutdownWindow::showShutdownWindow(BitcoinGUI *window)
 void ShutdownWindow::closeEvent(QCloseEvent *event)
 {
     event->ignore();
+}
+
+// ---------------------------------------------------------------------------
+// Import paper wallet / private key dialog
+// ---------------------------------------------------------------------------
+ImportKeyDialog::ImportKeyDialog(QWidget *parent, WalletModel *_walletModel) :
+    QDialog(parent),
+    walletModel(_walletModel),
+    keyEdit(0), labelEdit(0), statusLabel(0)
+{
+    setWindowTitle(tr("Import Paper Wallet"));
+    setMinimumWidth(460);
+
+    QVBoxLayout *root = new QVBoxLayout(this);
+
+    QLabel *help = new QLabel(tr(
+        "Paste the private key from your paper wallet (the WIF under \"PRIVATE KEY\", "
+        "usually starting with 5, K or L). Tip: scan the key's QR code with your phone's "
+        "camera, then paste the text here.\n\n"
+        "Importing runs a blockchain rescan, so it may take a little while."), this);
+    help->setWordWrap(true);
+    root->addWidget(help);
+
+    QFormLayout *form = new QFormLayout();
+    keyEdit = new QLineEdit(this);
+    keyEdit->setPlaceholderText(tr("Private key (WIF)"));
+    QPushButton *pasteBtn = new QPushButton(tr("Paste"), this);
+    QHBoxLayout *keyRow = new QHBoxLayout();
+    keyRow->addWidget(keyEdit, 1);
+    keyRow->addWidget(pasteBtn, 0);
+    form->addRow(tr("Private key:"), keyRow);
+
+    labelEdit = new QLineEdit(this);
+    labelEdit->setPlaceholderText(tr("Optional name for this address"));
+    labelEdit->setText("paper");
+    form->addRow(tr("Label:"), labelEdit);
+    root->addLayout(form);
+
+    statusLabel = new QLabel(QString(), this);
+    statusLabel->setWordWrap(true);
+    root->addWidget(statusLabel);
+
+    QHBoxLayout *btnRow = new QHBoxLayout();
+    btnRow->addStretch(1);
+    QPushButton *importBtn = new QPushButton(tr("Import"), this);
+    importBtn->setDefault(true);
+    QPushButton *closeBtn = new QPushButton(tr("Close"), this);
+    btnRow->addWidget(importBtn);
+    btnRow->addWidget(closeBtn);
+    root->addLayout(btnRow);
+
+    connect(pasteBtn, SIGNAL(clicked()), this, SLOT(onPaste()));
+    connect(importBtn, SIGNAL(clicked()), this, SLOT(onImport()));
+    connect(closeBtn, SIGNAL(clicked()), this, SLOT(close()));
+}
+
+void ImportKeyDialog::onPaste()
+{
+    keyEdit->setText(QApplication::clipboard()->text().trimmed());
+}
+
+void ImportKeyDialog::onImport()
+{
+    if(!walletModel) {
+        QMessageBox::critical(this, tr("Import Paper Wallet"), tr("No wallet is loaded."));
+        return;
+    }
+    const QString wif = keyEdit->text().trimmed();
+    if(wif.isEmpty()) {
+        statusLabel->setText(tr("Enter or paste a private key first."));
+        return;
+    }
+
+    statusLabel->setText(tr("Importing and rescanning… this can take a while."));
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QApplication::processEvents();
+
+    QString err;
+    bool ok = walletModel->importPrivateKey(wif, labelEdit->text(), err);
+
+    QApplication::restoreOverrideCursor();
+
+    if(ok) {
+        statusLabel->setText(err.isEmpty() ? tr("Imported. Any funds on this key will now appear in your balance.") : err);
+        QMessageBox::information(this, tr("Import Paper Wallet"),
+            err.isEmpty() ? tr("Private key imported successfully.\nAny funds it holds now appear in your wallet.") : err);
+        keyEdit->clear();
+    } else {
+        statusLabel->setText(err);
+        QMessageBox::warning(this, tr("Import Paper Wallet"), err);
+    }
 }

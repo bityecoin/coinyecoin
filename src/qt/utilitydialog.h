@@ -41,6 +41,28 @@ private Q_SLOTS:
     void on_printButton_clicked();
 };
 
+class QLineEdit;
+class QLabel;
+
+/** "Import paper wallet / private key" dialog box */
+class ImportKeyDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit ImportKeyDialog(QWidget *parent, WalletModel *walletModel);
+
+private Q_SLOTS:
+    void onImport();
+    void onPaste();
+
+private:
+    WalletModel *walletModel;
+    QLineEdit *keyEdit;
+    QLineEdit *labelEdit;
+    QLabel *statusLabel;
+};
+
 /** "Help message" dialog box */
 class HelpMessageDialog : public QDialog
 {

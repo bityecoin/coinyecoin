@@ -350,3 +350,12 @@ void WalletView::printPaperWallets()
     dlg.setClientModel(clientModel);
     dlg.exec();
 }
+
+void WalletView::importPaperWallet()
+{
+    if(!walletModel)
+        return;
+
+    ImportKeyDialog dlg(this, walletModel);
+    dlg.exec();
+}

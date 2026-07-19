@@ -40,6 +40,7 @@
 
 #include <QAction>
 #include <QApplication>
+#include <QImage>
 #include <QDateTime>
 #include <QDesktopWidget>
 #include <QDragEnterEvent>
@@ -80,6 +81,24 @@ const std::string BitcoinGUI::DEFAULT_UIPLATFORM =
 /** Display name for default wallet name. Uses tilde to avoid name
  * collisions in the future with additional wallets */
 const QString BitcoinGUI::DEFAULT_WALLET = "~Default";
+
+// Fishsticks: recolor a status-bar resource (e.g. the sync spinner) to an
+// arbitrary color while preserving its alpha, then scale to the given size.
+// Used so the spinner can be light green instead of the forced light icon color.
+static QPixmap tintedStatusPixmap(const QString &resource, const QColor &color, int size)
+{
+    QPixmap src(resource);
+    if(src.isNull())
+        return src;
+    QImage img = src.toImage().convertToFormat(QImage::Format_ARGB32);
+    for(int y = 0; y < img.height(); ++y) {
+        for(int x = 0; x < img.width(); ++x) {
+            const QRgb px = img.pixel(x, y);
+            img.setPixel(x, y, qRgba(color.red(), color.green(), color.blue(), qAlpha(px)));
+        }
+    }
+    return QPixmap::fromImage(img).scaled(size, size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+}
 
 BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *networkStyle, QWidget *parent) :
     QMainWindow(parent),
@@ -361,7 +380,7 @@ void BitcoinGUI::createActions()
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(platformStyle->TextColorIcon(":/icons/about"), tr("&About %1").arg(tr(PACKAGE_NAME)), this);
+    aboutAction = new QAction(QIcon(":/icons/about"), tr("&About %1").arg(tr(PACKAGE_NAME)), this);
     aboutAction->setStatusTip(tr("Show information about %1").arg(tr(PACKAGE_NAME)));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutAction->setEnabled(false);
@@ -386,8 +405,10 @@ void BitcoinGUI::createActions()
     signMessageAction->setStatusTip(tr("Sign messages with your Coinyecoin addresses to prove you own them"));
     verifyMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/verify"), tr("&Verify message..."), this);
     verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Coinyecoin addresses"));
-    paperWalletAction = new QAction(QIcon(":/icons/print"), tr("&Print paper wallets"), this);
+    paperWalletAction = new QAction(platformStyle->TextColorIcon(":/icons/print"), tr("&Print paper wallets"), this);
     paperWalletAction->setStatusTip(tr("Print paper wallets"));
+    importKeyAction = new QAction(platformStyle->TextColorIcon(":/icons/receiving_addresses"), tr("&Import paper wallet key..."), this);
+    importKeyAction->setStatusTip(tr("Import a private key from a paper wallet"));
 
     openRPCConsoleAction = new QAction(platformStyle->TextColorIcon(":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging and diagnostic console"));
@@ -428,6 +449,7 @@ void BitcoinGUI::createActions()
         connect(usedReceivingAddressesAction, SIGNAL(triggered()), walletFrame, SLOT(usedReceivingAddresses()));
         connect(openAction, SIGNAL(triggered()), this, SLOT(openClicked()));
         connect(paperWalletAction, SIGNAL(triggered()), walletFrame, SLOT(printPaperWallets()));
+        connect(importKeyAction, SIGNAL(triggered()), walletFrame, SLOT(importPaperWallet()));
     }
 #endif // ENABLE_WALLET
 
@@ -454,6 +476,7 @@ void BitcoinGUI::createMenuBar()
         file->addAction(signMessageAction);
         file->addAction(verifyMessageAction);
         file->addAction(paperWalletAction);
+        file->addAction(importKeyAction);
         file->addSeparator();
         file->addAction(usedSendingAddressesAction);
         file->addAction(usedReceivingAddressesAction);
@@ -602,6 +625,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
     usedReceivingAddressesAction->setEnabled(enabled);
     openAction->setEnabled(enabled);
     paperWalletAction->setEnabled(enabled);
+    importKeyAction->setEnabled(enabled);
 }
 
 void BitcoinGUI::createTrayIcon(const NetworkStyle *networkStyle)
@@ -861,7 +885,7 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
     if(secs < 90*60 || fCaughtUpToHeaders)
     {
         tooltip = tr("Up to date") + QString(".<br>") + tooltip;
-        labelBlocksIcon->setPixmap(platformStyle->SingleColorIcon(":/icons/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelBlocksIcon->setPixmap(QIcon(":/icons/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
 #ifdef ENABLE_WALLET
         if(walletFrame)
@@ -887,9 +911,9 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
         tooltip = tr("Catching up...") + QString("<br>") + tooltip;
         if(count != prevBlocks)
         {
-            labelBlocksIcon->setPixmap(platformStyle->SingleColorIcon(QString(
-                ":/movies/spinner-%1").arg(spinnerFrame, 3, 10, QChar('0')))
-                .pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+            labelBlocksIcon->setPixmap(tintedStatusPixmap(QString(
+                ":/movies/spinner-%1").arg(spinnerFrame, 3, 10, QChar('0')),
+                QColor(0x7a, 0xe6, 0xa0), STATUSBAR_ICONSIZE));
             spinnerFrame = (spinnerFrame + 1) % SPINNER_FRAMES;
         }
         prevBlocks = count;

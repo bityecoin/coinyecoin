@@ -103,6 +103,7 @@ private:
     QAction *signMessageAction;
     QAction *verifyMessageAction;
     QAction *paperWalletAction;
+    QAction *importKeyAction;
     QAction *aboutAction;
     QAction *receiveCoinsAction;
     QAction *receiveCoinsMenuAction;
