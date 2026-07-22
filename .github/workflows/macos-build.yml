@@ -1,0 +1,58 @@
+name: macOS build
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  macos:
+    runs-on: macos-15-intel
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          brew update
+          brew install automake libtool pkg-config boost \
+                       berkeley-db@4 libevent qt@5 miniupnpc
+          brew list --versions
+
+      - name: Configure
+        run: |
+          set -e
+          export PATH="$(brew --prefix qt@5)/bin:$PATH"
+          export PKG_CONFIG_PATH="$(brew --prefix qt@5)/lib/pkgconfig:$PKG_CONFIG_PATH"
+          export LDFLAGS="-L$(brew --prefix berkeley-db@4)/lib -L$(brew --prefix boost)/lib"
+          export CPPFLAGS="-I$(brew --prefix berkeley-db@4)/include -I$(brew --prefix boost)/include"
+          ./autogen.sh
+          ./configure \
+            --with-gui=qt5 \
+            --with-incompatible-bdb \
+            --disable-tests --disable-bench \
+            BDB_LIBS="-L$(brew --prefix berkeley-db@4)/lib -ldb_cxx-4.8" \
+            BDB_CFLAGS="-I$(brew --prefix berkeley-db@4)/include" \
+            CXXFLAGS="-O2 -std=c++11 -DBOOST_BIND_GLOBAL_PLACEHOLDERS \
+                      -Wno-deprecated-declarations -Wno-deprecated-copy \
+                      -Wno-unused-command-line-argument"
+
+      - name: Build
+        run: make -j"$(sysctl -n hw.ncpu)"
+
+      - name: Package .app and .dmg
+        run: |
+          make deploy || echo "make deploy failed - binaries are still in src/"
+          ls -la *.dmg 2>/dev/null || true
+          ls -la src/coinyecoind src/coinyecoin-cli src/qt/Coinyecoin-Qt 2>/dev/null || true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: coinyecoin-macos-x86_64
+          path: |
+            *.dmg
+            src/coinyecoind
+            src/coinyecoin-cli
+          if-no-files-found: warn
