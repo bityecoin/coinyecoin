@@ -1,0 +1,11 @@
+[Protocol]
+exec=coinyecoin-qt '%u'
+protocol=coinyecoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

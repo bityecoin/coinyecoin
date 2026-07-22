@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MiningPage</class>
+ <widget class="QWidget" name="MiningPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="pageLayout">
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>Solo CPU Mining</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-weight: bold; font-size: 16px;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="introLabel">
+     <property name="text">
+      <string>Mine COYE directly with your CPU using the wallet's built-in scrypt miner. Rewards are paid to this wallet. This mines solo against your own node — you only get a reward when you find a whole block, which can take a long time on a small CPU.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="controlsBox">
+     <property name="title">
+      <string>Built-in CPU miner</string>
+     </property>
+     <layout class="QGridLayout" name="controlsLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="threadsTextLabel">
+        <property name="text">
+         <string>CPU threads:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="threadsSpinBox">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>256</number>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="coreCountLabel">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <spacer name="controlsSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="statusTextLabel">
+        <property name="text">
+         <string>State:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" colspan="2">
+       <widget class="QLabel" name="statusLabel">
+        <property name="text">
+         <string>Idle</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLabel" name="hashRateTextLabel">
+        <property name="text">
+         <string>Hash rate:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="2">
+       <widget class="QLabel" name="hashRateLabel">
+        <property name="text">
+         <string>0.00 H/s</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="4">
+       <widget class="QPushButton" name="toggleMiningButton">
+        <property name="text">
+         <string>Start Mining</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="externalBox">
+     <property name="title">
+      <string>Solo mine with an external miner (ASIC / ccminer / cpuminer)</string>
+     </property>
+     <layout class="QGridLayout" name="externalLayout">
+      <item row="0" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="stratumStatusRow">
+        <item>
+         <widget class="QLabel" name="stratumIndicator">
+          <property name="minimumSize"><size><width>14</width><height>14</height></size></property>
+          <property name="maximumSize"><size><width>14</width><height>14</height></size></property>
+          <property name="styleSheet"><string notr="true">background-color:#c0392b; border-radius:7px;</string></property>
+          <property name="text"><string/></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="stratumStatusLabel">
+          <property name="text">
+           <string>Stratum server: checking...</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="toggleStratumButton">
+          <property name="text"><string>Start Stratum server</string></property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="urlLocalTextLabel">
+        <property name="text">
+         <string>URL (this computer):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="stratumUrlLocalEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>stratum+tcp://127.0.0.1:3333</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="urlLanTextLabel">
+        <property name="text">
+         <string>URL (other devices):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="stratumUrlLanEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>stratum+tcp://YOUR-PC-LAN-IP:3333</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="userTextLabel">
+        <property name="text">
+         <string>Worker / username:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="stratumUserEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="passTextLabel">
+        <property name="text">
+         <string>Password:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="stratumPassEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>x</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="ccminerTextLabel">
+        <property name="text">
+         <string>ccminer command:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="ccminerCmdEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="2">
+       <widget class="QLabel" name="externalNoteLabel">
+        <property name="text">
+         <string>Worker/username: use any address from this wallet to be paid to that address, or any rig name to pay this wallet's default address. Password is not checked — use x. For Antminer-style ASICs, put the URL in the pool field, the address in the worker field, and x as the password. Replace YOUR-PC-LAN-IP with this computer's LAN address (e.g. 192.168.1.50) when connecting from another device.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #808080;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="noteLabel">
+     <property name="text">
+      <string>Note: keep the wallet unlocked long enough for a reward to be recorded. You can keep using the rest of the wallet while mining.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #808080;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,27 @@
+# ---- add this to .gitlab-ci.yml (alongside the windows-* jobs) ----
+# NOTE: the macOS SDK cannot live in the repo (Apple license). Provide it to the
+# runner one of these ways, before this job runs:
+#   (a) seed it into the CI cache once (recommended): a manual job that unpacks
+#       MacOSX10.11.sdk into depends/SDKs and caches depends/SDKs; or
+#   (b) fetch it in before_script from a private URL held in a masked CI variable
+#       ($MACOS_SDK_URL), e.g.:
+#         - curl -sSL "$MACOS_SDK_URL" | tar -C depends/SDKs -xz
+macos-gui-x64:
+  stage: build
+  image: ubuntu:20.04           # period-correct clang for the pinned Qt 5.7.1
+  variables:
+    DEBIAN_FRONTEND: noninteractive
+  cache:
+    key: depends-darwin-$CI_JOB_NAME
+    paths: [depends/built, depends/sources, depends/SDKs]
+  artifacts:
+    paths: [release/]
+    expire_in: 30 days
+  timeout: 3h
+  script:
+    - test -d depends/SDKs/MacOSX10.11.sdk   # fail early if the SDK isn't provisioned
+    - bash ./build-macos.sh
+    - mkdir -p release
+    - cp -a Coinyecoin-Qt.app release/ 2>/dev/null || true
+    - cp -a ./*.dmg release/ 2>/dev/null || true
+    - cp src/coinyecoind src/coinyecoin-cli release/ 2>/dev/null || true
